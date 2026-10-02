@@ -2,3 +2,6 @@
 preview-*.png
 verify.html
 verify-output.txt
+.chrome-*/
+browser-error.txt
+verify-browser.ps1
