@@ -117,8 +117,31 @@ if (portfolio.email) {
   document.querySelector('#contact-message').textContent =
     'Have a project in mind? Send me a note and let’s start a conversation.';
   const emailLink = document.querySelector('#email-link');
-  emailLink.href = `mailto:${portfolio.email}`;
-  emailLink.hidden = false;
+  const subject = 'Portfolio inquiry';
+  const gmailUrl = new URL('https://mail.google.com/mail/');
+  gmailUrl.search = new URLSearchParams({
+    view: 'cm',
+    fs: '1',
+    to: portfolio.email,
+    su: subject,
+  }).toString();
+  emailLink.href = gmailUrl.href;
+  document.querySelector('#email-app-link').href =
+    `mailto:${portfolio.email}?subject=${encodeURIComponent(subject)}`;
+  document.querySelector('#email-address').textContent = portfolio.email;
+  const copyEmail = document.querySelector('#copy-email');
+  copyEmail.hidden = false;
+  copyEmail.addEventListener('click', async () => {
+    const status = document.querySelector('#email-status');
+    try {
+      if (!navigator.clipboard?.writeText)
+        throw new Error('Clipboard unavailable');
+      await navigator.clipboard.writeText(portfolio.email);
+      status.textContent = 'Email address copied.';
+    } catch {
+      status.textContent = `Please select and copy the address: ${portfolio.email}`;
+    }
+  });
 }
 document
   .querySelector('#contact-open')

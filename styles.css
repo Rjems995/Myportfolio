@@ -1081,6 +1081,27 @@ dialog::backdrop {
   }
 }
 
+.email-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.email-actions button {
+  background: transparent;
+}
+.dialog-content .email-help {
+  font-size: 12px;
+  margin-top: 18px;
+}
+#email-address {
+  overflow-wrap: anywhere;
+  user-select: all;
+}
+#email-status {
+  font-size: 12px;
+  min-height: 1.8em;
+  margin-bottom: 0;
+}
 .repository-link {
   margin-top: 24px;
 }
