@@ -1,5 +1,9 @@
 # Robin James Waje's portfolio
 
+## Formatting
+
+Run `npm install` once to install Prettier, then use `npm run format` to format the project or `npm run format:check` to check formatting without changing files. Prettier is only a development tool; the website still runs without a build step.
+
 A responsive, dependency-free portfolio inspired by the layout and motion of https://aadarshrai.vercel.app/. All implementation and decorative visuals are original; no reference photos or personal details are reused.
 
 Open `index.html` in a browser to preview. No installation or build step is required. Deploy `index.html`, `styles.css`, `script.js`, `animations.css`, `animations.js`, and `favicon.svg` to any static host.

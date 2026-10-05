@@ -1,50 +1,254 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Robin's personal portfolio. Thoughtful design, purposeful development, and selected digital experiments.">
-  <meta name="theme-color" content="#999d9e">
-  <title>Robin James Waje — Portfolio</title>
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="animations.css">
-  <script src="script.js" defer></script>
-  <script src="animations.js" defer></script>
-</head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header">
-    <a class="brand" href="#home" aria-label="Robin home"><span class="brand-symbol">©</span> <span>Code by Robin</span></a>
-    <button class="menu-toggle" aria-expanded="false" aria-controls="navigation">Menu <span>☰</span></button>
-    <nav id="navigation" aria-label="Main navigation"><a href="#work">Work<span class="nav-dot"></span></a><a href="#about">About<span class="nav-dot"></span></a><a href="#contact">Contact<span class="nav-dot"></span></a></nav>
-  </header>
-  <main id="main">
-    <section class="hero" id="home" aria-label="Introduction">
-      <div class="hero-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orbit orbit-three"></div><div class="sphere"></div><div class="art-shadow"></div></div>
-      <div class="location"><span>Made with care.<br>Built for the web.</span><span class="globe" aria-hidden="true"><i></i><b></b></span></div>
-      <div class="hero-role"><span class="direction" aria-hidden="true">↘</span><p>Independent<br>Designer & Developer</p></div>
-      <h1 class="name-marquee"><span>Robin James Waje — </span><span aria-hidden="true">Robin James Waje — </span></h1>
-      <div class="hero-bottom"><span>PERSONAL PORTFOLIO / 2026</span><a href="#about">Scroll to explore <span aria-hidden="true">↓</span></a></div>
-    </section>
-    <section class="about section-shell" id="about">
-      <div class="eyebrow"><span class="tiny-dot"></span> A LITTLE ABOUT ME</div>
-      <div class="intro-grid"><h2>Thoughtful design.<br>Purposeful code.<br><span>Digital experiences that click.</span></h2><div class="intro-side"><p>I’m Robin James Waje, a designer and developer who enjoys turning ideas into clear, engaging experiences for the web. My approach brings together curiosity, attention to detail, and a love for making things work beautifully.</p><a class="circle-button" href="#expertise">More about me <span aria-hidden="true">↗</span></a></div></div>
-      <div class="expertise" id="expertise"><div class="expertise-title"><span class="eyebrow">HOW I APPROACH MY WORK</span><h3>From the first idea<br>to the final detail.</h3></div><div class="service"><span class="eyebrow">01 / DESIGN</span><h4>Clear by design.</h4><p>Simple layouts, considered typography, and intuitive interfaces that put people first.</p></div><div class="service"><span class="eyebrow">02 / DEVELOPMENT</span><h4>Built with purpose.</h4><p>Responsive, accessible websites with thoughtful interactions across every screen size.</p></div></div>
-    </section>
-    <section class="work section-shell" id="work">
-      <div class="work-heading"><div><span class="eyebrow">A FEW THINGS TO EXPLORE</span><h2>Selected work<span class="superscript">(03)</span></h2></div><span class="sample-note">Concept projects / sample content</span></div>
-      <div class="filters" role="group" aria-label="Filter projects"><button class="filter active" data-filter="all" aria-pressed="true">All work <sup>03</sup></button><button class="filter" data-filter="design" aria-pressed="false">Design <sup>02</sup></button><button class="filter" data-filter="development" aria-pressed="false">Development <sup>02</sup></button></div>
-      <div class="project-list">
-        <button class="project" data-project="folio" data-category="design development"><span class="project-number">01</span><span class="project-title">Folio Studio<small>A home for good ideas.</small></span><span class="project-service">Design & Development</span><span class="project-arrow" aria-hidden="true">↗</span><span class="project-hover folio-preview" aria-hidden="true"><b>folio®</b><span>Ideas deserve<br>a beautiful home.</span><i>CREATIVE STUDIO — 2026</i></span></button>
-        <button class="project" data-project="orbit" data-category="development"><span class="project-number">02</span><span class="project-title">Orbit Dashboard<small>A little clarity in your day.</small></span><span class="project-service">Web Development</span><span class="project-arrow" aria-hidden="true">↗</span><span class="project-hover orbit-preview" aria-hidden="true"><b>◉ orbit</b><span class="mini-chart"><i></i><i></i><i></i><i></i><i></i></span><i>YOUR DAY, AT A GLANCE</i></span></button>
-        <button class="project" data-project="forma" data-category="design"><span class="project-number">03</span><span class="project-title">Forma Objects<small>Everyday, thoughtfully considered.</small></span><span class="project-service">Digital Design</span><span class="project-arrow" aria-hidden="true">↗</span><span class="project-hover forma-preview" aria-hidden="true"><b>forma.</b><span class="vase"></span><i>OBJECTS FOR EVERYDAY LIVING</i></span></button>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Robin's personal portfolio. Thoughtful design, purposeful development, and selected digital experiments."
+    />
+    <meta name="theme-color" content="#999d9e" />
+    <title>Robin James Waje — Portfolio</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="animations.css" />
+    <script src="script.js" defer></script>
+    <script src="animations.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="#home" aria-label="Robin home"
+        ><span class="brand-symbol">©</span> <span>Code by Robin</span></a
+      >
+      <button
+        class="menu-toggle"
+        aria-expanded="false"
+        aria-controls="navigation"
+      >
+        Menu <span>☰</span>
+      </button>
+      <nav id="navigation" aria-label="Main navigation">
+        <a href="#work">Work<span class="nav-dot"></span></a
+        ><a href="#about">About<span class="nav-dot"></span></a
+        ><a href="#contact">Contact<span class="nav-dot"></span></a>
+      </nav>
+    </header>
+    <main id="main">
+      <section class="hero" id="home" aria-label="Introduction">
+        <div class="hero-art" aria-hidden="true">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="orbit orbit-three"></div>
+          <div class="sphere"></div>
+          <div class="art-shadow"></div>
+        </div>
+        <div class="location">
+          <span>Made with care.<br />Built for the web.</span
+          ><span class="globe" aria-hidden="true"><i></i><b></b></span>
+        </div>
+        <div class="hero-role">
+          <span class="direction" aria-hidden="true">↘</span>
+          <p>Independent<br />Designer & Developer</p>
+        </div>
+        <h1 class="name-marquee">
+          <span>Robin James Waje — </span
+          ><span aria-hidden="true">Robin James Waje — </span>
+        </h1>
+        <div class="hero-bottom">
+          <span>PERSONAL PORTFOLIO / 2026</span
+          ><a href="#about"
+            >Scroll to explore <span aria-hidden="true">↓</span></a
+          >
+        </div>
+      </section>
+      <section class="about section-shell" id="about">
+        <div class="eyebrow">
+          <span class="tiny-dot"></span> A LITTLE ABOUT ME
+        </div>
+        <div class="intro-grid">
+          <h2>
+            Thoughtful design.<br />Purposeful code.<br /><span
+              >Digital experiences that click.</span
+            >
+          </h2>
+          <div class="intro-side">
+            <p>
+              I’m Robin James Waje, a designer and developer who enjoys turning
+              ideas into clear, engaging experiences for the web. My approach
+              brings together curiosity, attention to detail, and a love for
+              making things work beautifully.
+            </p>
+            <a class="circle-button" href="#expertise"
+              >More about me <span aria-hidden="true">↗</span></a
+            >
+          </div>
+        </div>
+        <div class="expertise" id="expertise">
+          <div class="expertise-title">
+            <span class="eyebrow">HOW I APPROACH MY WORK</span>
+            <h3>From the first idea<br />to the final detail.</h3>
+          </div>
+          <div class="service">
+            <span class="eyebrow">01 / DESIGN</span>
+            <h4>Clear by design.</h4>
+            <p>
+              Simple layouts, considered typography, and intuitive interfaces
+              that put people first.
+            </p>
+          </div>
+          <div class="service">
+            <span class="eyebrow">02 / DEVELOPMENT</span>
+            <h4>Built with purpose.</h4>
+            <p>
+              Responsive, accessible websites with thoughtful interactions
+              across every screen size.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="work section-shell" id="work">
+        <div class="work-heading">
+          <div>
+            <span class="eyebrow">A FEW THINGS TO EXPLORE</span>
+            <h2>Selected work<span class="superscript">(03)</span></h2>
+          </div>
+          <span class="sample-note">Concept projects / sample content</span>
+        </div>
+        <div class="filters" role="group" aria-label="Filter projects">
+          <button class="filter active" data-filter="all" aria-pressed="true">
+            All work <sup>03</sup></button
+          ><button class="filter" data-filter="design" aria-pressed="false">
+            Design <sup>02</sup></button
+          ><button
+            class="filter"
+            data-filter="development"
+            aria-pressed="false"
+          >
+            Development <sup>02</sup>
+          </button>
+        </div>
+        <div class="project-list">
+          <button
+            class="project"
+            data-project="folio"
+            data-category="design development"
+          >
+            <span class="project-number">01</span
+            ><span class="project-title"
+              >Folio Studio<small>A home for good ideas.</small></span
+            ><span class="project-service">Design & Development</span
+            ><span class="project-arrow" aria-hidden="true">↗</span
+            ><span class="project-hover folio-preview" aria-hidden="true"
+              ><b>folio®</b><span>Ideas deserve<br />a beautiful home.</span
+              ><i>CREATIVE STUDIO — 2026</i></span
+            >
+          </button>
+          <button
+            class="project"
+            data-project="orbit"
+            data-category="development"
+          >
+            <span class="project-number">02</span
+            ><span class="project-title"
+              >Orbit Dashboard<small>A little clarity in your day.</small></span
+            ><span class="project-service">Web Development</span
+            ><span class="project-arrow" aria-hidden="true">↗</span
+            ><span class="project-hover orbit-preview" aria-hidden="true"
+              ><b>◉ orbit</b
+              ><span class="mini-chart"
+                ><i></i><i></i><i></i><i></i><i></i></span
+              ><i>YOUR DAY, AT A GLANCE</i></span
+            >
+          </button>
+          <button class="project" data-project="forma" data-category="design">
+            <span class="project-number">03</span
+            ><span class="project-title"
+              >Forma Objects<small
+                >Everyday, thoughtfully considered.</small
+              ></span
+            ><span class="project-service">Digital Design</span
+            ><span class="project-arrow" aria-hidden="true">↗</span
+            ><span class="project-hover forma-preview" aria-hidden="true"
+              ><b>forma.</b><span class="vase"></span
+              ><i>OBJECTS FOR EVERYDAY LIVING</i></span
+            >
+          </button>
+        </div>
+        <div class="work-bottom">
+          <p>Good things start with a conversation.</p>
+          <a class="pill-link" href="#contact"
+            >Have a project in mind? <span aria-hidden="true">↗</span></a
+          >
+        </div>
+      </section>
+      <section class="contact" id="contact">
+        <div class="section-shell">
+          <span class="eyebrow">HAVE SOMETHING IN MIND?</span>
+          <div class="contact-heading">
+            <h2>Let’s make<br /><span>something great.</span></h2>
+            <span class="contact-arrow" aria-hidden="true">↘</span>
+          </div>
+          <div class="contact-rule">
+            <button class="circle-button blue" id="contact-open">
+              Get in touch <span aria-hidden="true">↗</span>
+            </button>
+          </div>
+          <div class="contact-details">
+            <p>
+              A new idea, an interesting collaboration,<br />or just a hello.
+              I’d love to hear it.
+            </p>
+            <div class="contact-links">
+              <a href="mailto:robinwaje09@gmail.com">robinwaje09@gmail.com ↗</a
+              ><a href="tel:+639563580043">0956 358 0043 ↗</a
+              ><a
+                href="https://github.com/Rjems995"
+                target="_blank"
+                rel="noopener noreferrer"
+                >GitHub ↗</a
+              >
+            </div>
+          </div>
+          <footer>
+            <div>
+              <span class="eyebrow">VERSION</span>
+              <p>2026 © Robin James Waje</p>
+            </div>
+            <div>
+              <span class="eyebrow">LOCAL TIME</span>
+              <p id="local-time">Philippines · UTC+8</p>
+            </div>
+            <a href="#home">Back to top <span aria-hidden="true">↑</span></a>
+          </footer>
+        </div>
+      </section>
+    </main>
+    <dialog id="project-dialog" aria-labelledby="dialog-title">
+      <button class="dialog-close" aria-label="Close project details">×</button>
+      <div id="dialog-art" class="dialog-art"></div>
+      <div class="dialog-content">
+        <span class="eyebrow">CONCEPT PROJECT</span>
+        <h2 id="dialog-title"></h2>
+        <p id="dialog-description"></p>
+        <div id="dialog-tags" class="tags"></div>
+        <p class="dialog-note">
+          Sample portfolio content — replace this concept with your own project,
+          screenshots, and live link.
+        </p>
       </div>
-      <div class="work-bottom"><p>Good things start with a conversation.</p><a class="pill-link" href="#contact">Have a project in mind? <span aria-hidden="true">↗</span></a></div>
-    </section>
-    <section class="contact" id="contact"><div class="section-shell"><span class="eyebrow">HAVE SOMETHING IN MIND?</span><div class="contact-heading"><h2>Let’s make<br><span>something great.</span></h2><span class="contact-arrow" aria-hidden="true">↘</span></div><div class="contact-rule"><button class="circle-button blue" id="contact-open">Get in touch <span aria-hidden="true">↗</span></button></div><div class="contact-details"><p>A new idea, an interesting collaboration,<br>or just a hello. I’d love to hear it.</p><div class="contact-links"><a href="mailto:robinwaje09@gmail.com">robinwaje09@gmail.com ↗</a><a href="tel:+639563580043">0956 358 0043 ↗</a><a href="https://github.com/Rjems995" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></div><footer><div><span class="eyebrow">VERSION</span><p>2026 © Robin James Waje</p></div><div><span class="eyebrow">LOCAL TIME</span><p id="local-time">Philippines · UTC+8</p></div><a href="#home">Back to top <span aria-hidden="true">↑</span></a></footer></div></section>
-  </main>
-  <dialog id="project-dialog" aria-labelledby="dialog-title"><button class="dialog-close" aria-label="Close project details">×</button><div id="dialog-art" class="dialog-art"></div><div class="dialog-content"><span class="eyebrow">CONCEPT PROJECT</span><h2 id="dialog-title"></h2><p id="dialog-description"></p><div id="dialog-tags" class="tags"></div><p class="dialog-note">Sample portfolio content — replace this concept with your own project, screenshots, and live link.</p></div></dialog>
-  <dialog id="contact-dialog" aria-labelledby="contact-title"><button class="dialog-close" aria-label="Close contact details">×</button><div class="dialog-content"><span class="eyebrow">LET’S CONNECT</span><h2 id="contact-title">Say hello.</h2><p id="contact-message">Robin’s contact information will be added soon. Please check back for an email address and social links.</p><a id="email-link" class="pill-link" hidden>Email Robin ↗</a></div></dialog>
-</body>
+    </dialog>
+    <dialog id="contact-dialog" aria-labelledby="contact-title">
+      <button class="dialog-close" aria-label="Close contact details">×</button>
+      <div class="dialog-content">
+        <span class="eyebrow">LET’S CONNECT</span>
+        <h2 id="contact-title">Say hello.</h2>
+        <p id="contact-message">
+          Robin’s contact information will be added soon. Please check back for
+          an email address and social links.
+        </p>
+        <a id="email-link" class="pill-link" hidden>Email Robin ↗</a>
+      </div>
+    </dialog>
+  </body>
 </html>

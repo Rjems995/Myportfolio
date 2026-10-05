@@ -1,8 +1,7 @@
+node_modules/
 .browser-*/
+.chrome-*/
 preview-*.png
 verify.html
 verify-output.txt
-.chrome-*/
 browser-error.txt
-verify-browser.ps1
-node_modules/
