@@ -113,65 +113,71 @@
             <span class="eyebrow">A FEW THINGS TO EXPLORE</span>
             <h2>Selected work<span class="superscript">(03)</span></h2>
           </div>
-          <span class="sample-note">Concept projects / sample content</span>
+          <span class="sample-note">Selected GitHub projects</span>
         </div>
         <div class="filters" role="group" aria-label="Filter projects">
           <button class="filter active" data-filter="all" aria-pressed="true">
             All work <sup>03</sup></button
-          ><button class="filter" data-filter="design" aria-pressed="false">
-            Design <sup>02</sup></button
-          ><button
-            class="filter"
-            data-filter="development"
-            aria-pressed="false"
-          >
-            Development <sup>02</sup>
+          ><button class="filter" data-filter="web" aria-pressed="false">
+            Web apps <sup>03</sup></button
+          ><button class="filter" data-filter="mobile" aria-pressed="false">
+            Mobile <sup>01</sup>
           </button>
         </div>
         <div class="project-list">
           <button
             class="project"
-            data-project="folio"
-            data-category="design development"
+            data-project="tally"
+            data-category="web mobile"
+            aria-label="View Tally project details"
           >
             <span class="project-number">01</span
             ><span class="project-title"
-              >Folio Studio<small>A home for good ideas.</small></span
-            ><span class="project-service">Design & Development</span
-            ><span class="project-arrow" aria-hidden="true">↗</span
-            ><span class="project-hover folio-preview" aria-hidden="true"
-              ><b>folio®</b><span>Ideas deserve<br />a beautiful home.</span
-              ><i>CREATIVE STUDIO — 2026</i></span
+              >Tally<small
+                >From receipt photos to spending insights.</small
+              ></span
+            ><span class="project-service">Web & Mobile Development</span
+            ><span class="project-arrow" aria-hidden="true">↗</span>
+            <span class="project-hover tally-preview" aria-hidden="true"
+              ><b>tally.</b><span>Scan. Review.<br />Understand.</span
+              ><i>RECEIPT SCANNER & EXPENSE TRACKER</i></span
             >
           </button>
           <button
             class="project"
-            data-project="orbit"
-            data-category="development"
+            data-project="campus"
+            data-category="web"
+            aria-label="View Campus Marketplace project details"
           >
             <span class="project-number">02</span
             ><span class="project-title"
-              >Orbit Dashboard<small>A little clarity in your day.</small></span
-            ><span class="project-service">Web Development</span
-            ><span class="project-arrow" aria-hidden="true">↗</span
-            ><span class="project-hover orbit-preview" aria-hidden="true"
-              ><b>◉ orbit</b
-              ><span class="mini-chart"
-                ><i></i><i></i><i></i><i></i><i></i></span
-              ><i>YOUR DAY, AT A GLANCE</i></span
+              >Campus Marketplace<small
+                >Buy, sell, and connect on campus.</small
+              ></span
+            ><span class="project-service">Full-stack Development</span
+            ><span class="project-arrow" aria-hidden="true">↗</span>
+            <span class="project-hover campus-preview" aria-hidden="true"
+              ><b>campus.</b><span>Your campus.<br />Your marketplace.</span
+              ><i>LISTINGS · CHAT · COMMUNITY</i></span
             >
           </button>
-          <button class="project" data-project="forma" data-category="design">
+          <button
+            class="project"
+            data-project="evacu"
+            data-category="web"
+            aria-label="View EVACU-ROSA project details"
+          >
             <span class="project-number">03</span
             ><span class="project-title"
-              >Forma Objects<small
-                >Everyday, thoughtfully considered.</small
+              >EVACU-ROSA<small
+                >Mapping routes. Connecting communities.</small
               ></span
-            ><span class="project-service">Digital Design</span
-            ><span class="project-arrow" aria-hidden="true">↗</span
-            ><span class="project-hover forma-preview" aria-hidden="true"
-              ><b>forma.</b><span class="vase"></span
-              ><i>OBJECTS FOR EVERYDAY LIVING</i></span
+            ><span class="project-service">Geospatial Web Development</span
+            ><span class="project-arrow" aria-hidden="true">↗</span>
+            <span class="project-hover evacu-preview" aria-hidden="true"
+              ><b>EVACU<br />ROSA</b
+              ><span>A map-first<br />evacuation project.</span
+              ><i>MAPS · ROUTING · OFFLINE DIRECTIONS</i></span
             >
           </button>
         </div>
@@ -228,14 +234,18 @@
       <button class="dialog-close" aria-label="Close project details">×</button>
       <div id="dialog-art" class="dialog-art"></div>
       <div class="dialog-content">
-        <span class="eyebrow">CONCEPT PROJECT</span>
+        <span class="eyebrow">GITHUB PROJECT</span>
         <h2 id="dialog-title"></h2>
         <p id="dialog-description"></p>
         <div id="dialog-tags" class="tags"></div>
-        <p class="dialog-note">
-          Sample portfolio content — replace this concept with your own project,
-          screenshots, and live link.
-        </p>
+        <a
+          id="dialog-repository"
+          class="pill-link repository-link"
+          target="_blank"
+          rel="noopener noreferrer"
+          >View on GitHub <span aria-hidden="true">↗</span></a
+        >
+        <p class="dialog-note"></p>
       </div>
     </dialog>
     <dialog id="contact-dialog" aria-labelledby="contact-title">

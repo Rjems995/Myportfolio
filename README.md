@@ -11,7 +11,7 @@ Open `index.html` in a browser to preview. No installation or build step is requ
 ## Personalize
 
 - Update your name, role, about text, and page metadata in `index.html`.
-- Replace the three clearly marked concept projects in `index.html` and `script.js` with your own work.
+- Selected work features Tally, Campus Marketplace, and EVACU-ROSA from your public GitHub repositories. Update the cards in `index.html` and descriptions, tags, and repository links in `script.js` as your projects evolve.
 - Your email is configured in `script.js`; your email, phone, and GitHub links are in `index.html`.
 - Replace the CSS artwork with your own portrait if desired.
 - Change the timezone in `script.js` if needed.

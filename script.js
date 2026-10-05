@@ -1,24 +1,30 @@
-// Replace the sample content here with your real project information.
+// Selected public repositories from github.com/Rjems995.
 const portfolio = {
   email: 'robinwaje09@gmail.com',
   projects: {
-    folio: {
-      title: 'Folio Studio',
+    tally: {
+      title: 'Tally',
       description:
-        'A concept website for an independent creative studio. An editorial layout, bold typography, and a soft green palette make space for the work to speak for itself.',
-      tags: ['Interface design', 'Responsive development', 'Studio concept'],
+        'A receipt scanner and expense tracker that turns photos into searchable spending records. Browser-local OCR, editable receipt review, analytics, and exports connect to a Python and SQLite backend. Capacitor projects extend the app to mobile, with an Android preview and an iOS build workflow.',
+      tags: ['JavaScript', 'Python', 'SQLite', 'Tesseract OCR', 'Capacitor'],
+      url: 'https://github.com/Rjems995/Tally',
+      note: 'The Android preview uses temporary demo data. Mobile store releases are not published.',
     },
-    orbit: {
-      title: 'Orbit Dashboard',
+    campus: {
+      title: 'Campus Marketplace',
       description:
-        'A concept productivity dashboard that brings tasks, activity, and daily priorities into one calm workspace. Designed around clear information and useful interactions.',
-      tags: ['Web development', 'Dashboard', 'Product concept'],
+        'A full-stack marketplace for university communities to buy, sell, and trade items. Includes searchable listings, image galleries, real-time chat, favorites, seller reviews, and an administration workflow for moderation.',
+      tags: ['Flask', 'PostgreSQL', 'SQLAlchemy', 'Socket.IO', 'Bootstrap'],
+      url: 'https://github.com/Rjems995/CampusMarketplace',
+      note: 'Explore the source and local setup instructions on GitHub.',
     },
-    forma: {
-      title: 'Forma Objects',
+    evacu: {
+      title: 'EVACU-ROSA',
       description:
-        'A concept storefront for thoughtfully made everyday objects. Warm neutrals, simple shapes, and generous spacing create an understated shopping experience.',
-      tags: ['Art direction', 'Interface design', 'Commerce concept'],
+        'A map-first evacuation application for Santa Rosa City, Laguna. Combines street-hazard reporting, transport-aware shelter routing, GPS guidance, and downloadable offline directions. Built with A* routing, fuzzy inference, and a geospatial database.',
+      tags: ['Next.js', 'TypeScript', 'Leaflet', 'Supabase', 'PostGIS'],
+      url: 'https://github.com/Rjems995/EVACU-ROSA-v1',
+      note: 'A development project requiring verified shelters, operational data, and field validation before real-world use.',
     },
   },
 };
@@ -84,6 +90,12 @@ document.querySelectorAll('.project').forEach((button) => {
     document.querySelector('#dialog-title').textContent = project.title;
     document.querySelector('#dialog-description').textContent =
       project.description;
+    document.querySelector('#dialog-repository').href = project.url;
+    document
+      .querySelector('#dialog-repository')
+      .setAttribute('aria-label', `View ${project.title} on GitHub`);
+    document.querySelector('#project-dialog .dialog-note').textContent =
+      project.note;
     const art = document.querySelector('#dialog-art');
     art.className = `dialog-art ${button.dataset.project}-preview`;
     art.replaceChildren(

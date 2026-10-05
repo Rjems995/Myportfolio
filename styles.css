@@ -523,15 +523,15 @@ sup {
   font-style: normal;
   letter-spacing: 1px;
 }
-.folio-preview {
+.tally-preview {
   background: #ddeb9c;
   color: #28351c;
 }
-.orbit-preview {
+.campus-preview {
   background: #292b40;
   color: #eeedff;
 }
-.forma-preview {
+.evacu-preview {
   background: #ded3c3;
   color: #514334;
 }
@@ -1079,4 +1079,22 @@ dialog::backdrop {
     animation: none !important;
     transition: none !important;
   }
+}
+
+.repository-link {
+  margin-top: 24px;
+}
+.project-title {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.project-service {
+  flex-shrink: 0;
+  max-width: 135px;
+  line-height: 1.5;
+}
+.dialog-art b {
+  text-align: center;
+  font-size: clamp(40px, 10vw, 76px);
+  line-height: 1;
 }
