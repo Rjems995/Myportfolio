@@ -1102,6 +1102,56 @@ dialog::backdrop {
   min-height: 1.8em;
   margin-bottom: 0;
 }
+.hero-art.hero-portrait {
+  inset: 85px 0 0;
+  perspective: none;
+  pointer-events: none;
+}
+.hero-portrait img {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(68vw, 800px);
+  max-width: none;
+  height: auto;
+  transform: translateX(-50%);
+}
+@media (max-width: 850px) {
+  .hero-portrait img {
+    width: 700px;
+  }
+  .hero-role {
+    top: 25%;
+    right: 4%;
+  }
+}
+@media (max-width: 600px) {
+  .hero-art.hero-portrait {
+    inset: 85px 0 0;
+  }
+  .hero-portrait img {
+    width: 540px;
+  }
+  .hero .location {
+    top: auto;
+    bottom: 100px;
+    left: auto;
+    right: 6%;
+    padding: 0;
+    background: transparent;
+  }
+  .hero .location > span:first-child {
+    display: none;
+  }
+  .hero-role {
+    top: auto;
+    text-shadow: 0 2px 16px #0008;
+  }
+  .hero-bottom {
+    z-index: 6;
+    text-shadow: 0 1px 8px #0008;
+  }
+}
 .repository-link {
   margin-top: 24px;
 }

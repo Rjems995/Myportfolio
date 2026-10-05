@@ -13,7 +13,7 @@ Open `index.html` in a browser to preview. No installation or build step is requ
 - Update your name, role, about text, and page metadata in `index.html`.
 - Selected work features Tally, Campus Marketplace, and EVACU-ROSA from your public GitHub repositories. Update the cards in `index.html` and descriptions, tags, and repository links in `script.js` as your projects evolve.
 - Your email is configured in `script.js`; your email, phone, and GitHub links are in `index.html`.
-- Replace the CSS artwork with your own portrait if desired.
+- The hero uses `assets/robin-smiling.png`, a transparent cutout from your latest smiling photo. Include the `assets` folder when deploying.
 - Change the timezone in `script.js` if needed.
 
 Includes category filtering, project detail dialogs, a mobile menu, a live local clock, keyboard focus styles, and reduced-motion support. Google Fonts is optional; the site uses a system fallback when offline.
