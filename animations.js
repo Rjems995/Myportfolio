@@ -9,6 +9,14 @@
   const about = document.querySelector('.about');
   const nav = document.querySelector('#navigation');
   const menu = document.querySelector('.menu-toggle');
+  function setDrawerMode(enabled) {
+    if (nav.classList.contains('drawer-mode') === enabled) return;
+    // Switching navigation layouts must not animate a closed drawer across the screen.
+    nav.classList.add('nav-layout-change');
+    nav.classList.toggle('drawer-mode', enabled);
+    void nav.offsetWidth;
+    nav.classList.remove('nav-layout-change');
+  }
   const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
   const running = new Set();
   function animate(element, frames, options) {
@@ -299,14 +307,14 @@
       scrollY > 130 || nav.classList.contains('open'),
     );
     if (scrollY > 130 && !nav.classList.contains('drawer-mode'))
-      nav.classList.add('drawer-mode');
+      setDrawerMode(true);
     if (
       scrollY <= 130 &&
       innerWidth > 600 &&
       !nav.classList.contains('open') &&
       nav.classList.contains('drawer-mode')
     )
-      nav.classList.remove('drawer-mode');
+      setDrawerMode(false);
     if (reduced.matches) return;
     hero.style.setProperty(
       '--hero-drift',
@@ -359,7 +367,7 @@
   function syncMenu() {
     const open = nav.classList.contains('open');
     if ((open || innerWidth <= 600) && !nav.classList.contains('drawer-mode'))
-      nav.classList.add('drawer-mode');
+      setDrawerMode(true);
     floatingMenu.classList.toggle('shown', scrollY > 130 || open);
     floatingMenu.setAttribute('aria-expanded', String(open));
     floatingMenu.setAttribute(
@@ -388,7 +396,7 @@
       innerWidth > 600 &&
       scrollY <= 130
     )
-      nav.classList.remove('drawer-mode');
+      setDrawerMode(false);
   });
   document.addEventListener('keydown', (event) => {
     if (event.key !== 'Tab' || !nav.classList.contains('open')) return;
@@ -402,7 +410,7 @@
   addEventListener('resize', () => {
     hidePreview();
     if (innerWidth > 600 && !nav.classList.contains('open'))
-      nav.classList.remove('drawer-mode');
+      setDrawerMode(false);
     syncMenu();
     updateScroll();
   });

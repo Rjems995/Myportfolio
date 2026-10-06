@@ -324,6 +324,10 @@ nav.drawer-mode {
   z-index: 22;
   font-size: clamp(38px, 5vw, 64px);
 }
+nav.nav-layout-change,
+nav.nav-layout-change a {
+  transition: none !important;
+}
 nav.drawer-mode::before {
   content: 'NAVIGATION';
   display: block;
