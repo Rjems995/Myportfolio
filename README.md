@@ -15,7 +15,7 @@ Project screenshots in `assets/projects/` were captured from local copies of the
 - Update your name, role, about text, and page metadata in `index.html`.
 - Selected work features Tally, Campus Marketplace, and EVACU-ROSA from your public GitHub repositories. Update the cards in `index.html` and descriptions, tags, and repository links in `script.js` as your projects evolve.
 - Your email is configured in `script.js`; your email, phone, and GitHub links are in `index.html`.
-- The hero uses `assets/robin-smiling.png`, a transparent cutout from your latest smiling photo. Include the `assets` folder when deploying.
+- The hero serves transparent WebP portraits at 540, 800, and 1086 pixels wide through `srcset`. Its `sizes` attribute matches the CSS portrait width so the browser can choose an appropriate image for the viewport and screen density. `assets/robin-smiling.png` is retained as the source image and is not downloaded by the page. Include the `assets` folder when deploying.
 - Change the timezone in `script.js` if needed.
 
 Includes category filtering, project detail dialogs, a mobile menu, a live local clock, keyboard focus styles, and reduced-motion support. Google Fonts is optional; the site uses a system fallback when offline.
