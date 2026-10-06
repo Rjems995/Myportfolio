@@ -1154,13 +1154,33 @@ dialog::backdrop {
 }
 .project-hover.screenshot-preview {
   padding: 0;
-  background: #f3f4f6;
+  width: 350px;
+  height: auto;
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: 8px;
+  text-align: left;
 }
 .screenshot-preview img {
   display: block;
   width: 100%;
-  height: 100%;
+  height: 210px;
   object-fit: contain;
+  background: #f3f4f6;
+}
+.project-hover > .preview-copy {
+  display: block;
+  padding: 18px 20px;
+  font-size: 14px;
+  line-height: 1.55;
+  letter-spacing: 0;
+}
+.preview-cta {
+  display: block;
+  margin-top: 12px;
+  color: var(--blue);
+  font-size: 11px;
+  font-weight: 600;
 }
 #project-dialog {
   width: min(940px, calc(100% - 32px));

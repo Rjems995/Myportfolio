@@ -225,10 +225,7 @@
     project.addEventListener('pointerenter', (event) => {
       if (reduced.matches || !finePointer.matches || innerWidth <= 850) return;
       const art = project.querySelector('.project-hover').cloneNode(true);
-      const label = document.createElement('span');
-      label.className = 'view-label';
-      label.textContent = 'View';
-      preview.replaceChildren(art, label);
+      preview.replaceChildren(art);
       previewX = pointerX = event.clientX;
       previewY = pointerY = event.clientY;
       hover = true;
@@ -274,7 +271,11 @@
     if (hover) {
       previewX += (pointerX - previewX) * 0.16;
       previewY += (pointerY - previewY) * 0.16;
-      preview.style.transform = `translate3d(${clamp(previewX, 145, innerWidth - 145) - 135}px,${clamp(previewY, 125, innerHeight - 125) - 115}px,0)`;
+      const width = preview.offsetWidth;
+      const height = preview.offsetHeight;
+      const left = clamp(previewX - width / 2, 12, innerWidth - width - 12);
+      const top = clamp(previewY - height / 2, 12, innerHeight - height - 12);
+      preview.style.transform = `translate3d(${left}px,${top}px,0)`;
     }
     if (heroVisible || hover) frame = requestAnimationFrame(tick);
   }
