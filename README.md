@@ -10,6 +10,8 @@ Open `index.html` in a browser to preview. No installation or build step is requ
 
 ## Personalize
 
+Project screenshots in `assets/projects/` were captured from local copies of the public repositories: Tally's built-in demo dashboard, Campus Marketplace's landing page with an empty temporary SQLite database, and EVACU-ROSA's public map without configured shelters. The map retains OpenStreetMap attribution. These are actual app captures, not mockups. Include these WebP assets when deploying.
+
 - Update your name, role, about text, and page metadata in `index.html`.
 - Selected work features Tally, Campus Marketplace, and EVACU-ROSA from your public GitHub repositories. Update the cards in `index.html` and descriptions, tags, and repository links in `script.js` as your projects evolve.
 - Your email is configured in `script.js`; your email, phone, and GitHub links are in `index.html`.

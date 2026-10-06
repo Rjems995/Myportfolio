@@ -1152,6 +1152,85 @@ dialog::backdrop {
     text-shadow: 0 1px 8px #0008;
   }
 }
+.project-hover.screenshot-preview {
+  padding: 0;
+  background: #f3f4f6;
+}
+.screenshot-preview img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+#project-dialog {
+  width: min(940px, calc(100% - 32px));
+}
+.dialog-art.screenshot-art {
+  height: auto;
+  display: block;
+  background: #f3f4f6;
+}
+.screenshot-art img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.screenshot-caption {
+  margin: 0;
+  padding: 12px 24px;
+  font-size: 11px;
+  line-height: 1.6;
+  color: #646660;
+  border-bottom: 1px solid var(--line);
+}
+.dialog-art.screenshot-art {
+  height: min(60vh, 540px);
+}
+.screenshot-art img {
+  height: 100%;
+  object-fit: contain;
+}
+.gallery-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  padding: 12px;
+}
+.gallery-controls button {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: white;
+  font-size: 20px;
+}
+#gallery-counter {
+  min-width: 45px;
+  text-align: center;
+  font-size: 13px;
+}
+.gallery-thumbnails {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  padding: 0 24px 16px;
+}
+.gallery-thumbnails button {
+  padding: 3px;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  background: #eee;
+}
+.gallery-thumbnails button[aria-pressed='true'] {
+  border-color: var(--blue);
+}
+.gallery-thumbnails img {
+  display: block;
+  width: 100%;
+  height: 75px;
+  object-fit: contain;
+}
 .repository-link {
   margin-top: 24px;
 }

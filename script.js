@@ -4,6 +4,8 @@ const portfolio = {
   projects: {
     tally: {
       title: 'Tally',
+      screenshot: 'assets/projects/tally.webp',
+      screenshotCaption: 'Dashboard screenshot — built-in demo data.',
       description:
         'A receipt scanner and expense tracker that turns photos into searchable spending records. Browser-local OCR, editable receipt review, analytics, and exports connect to a Python and SQLite backend. Capacitor projects extend the app to mobile, with an Android preview and an iOS build workflow.',
       tags: ['JavaScript', 'Python', 'SQLite', 'Tesseract OCR', 'Capacitor'],
@@ -12,6 +14,9 @@ const portfolio = {
     },
     campus: {
       title: 'Campus Marketplace',
+      screenshot: 'assets/projects/campus.webp',
+      screenshotCaption:
+        'Landing page screenshot — local preview with an empty database.',
       description:
         'A full-stack marketplace for university communities to buy, sell, and trade items. Includes searchable listings, image galleries, real-time chat, favorites, seller reviews, and an administration workflow for moderation.',
       tags: ['Flask', 'PostgreSQL', 'SQLAlchemy', 'Socket.IO', 'Bootstrap'],
@@ -20,6 +25,9 @@ const portfolio = {
     },
     evacu: {
       title: 'EVACU-ROSA',
+      screenshot: 'assets/projects/evacu.webp',
+      screenshotCaption:
+        'Public map screenshot — awaiting shelter setup. Map data © OpenStreetMap contributors.',
       description:
         'A map-first evacuation application for Santa Rosa City, Laguna. Combines street-hazard reporting, transport-aware shelter routing, GPS guidance, and downloadable offline directions. Built with A* routing, fuzzy inference, and a geospatial database.',
       tags: ['Next.js', 'TypeScript', 'Leaflet', 'Supabase', 'PostGIS'],
@@ -30,6 +38,87 @@ const portfolio = {
 };
 
 const menuButton = document.querySelector('.menu-toggle');
+const extraScreenshots = {
+  tally: [
+    ['tally-receipts', 'Receipt history — built-in demo data.'],
+    ['tally-analytics', 'Spending analytics — built-in demo data.'],
+  ],
+  campus: [
+    ['campus-browse', 'Browse and search filters — empty local database.'],
+    ['campus-register', 'Student registration page — local preview.'],
+  ],
+  evacu: [
+    [
+      'evacu-guide',
+      'How-it-works guide — local preview. Map data © OpenStreetMap contributors.',
+    ],
+    [
+      'evacu-admin',
+      'Operations entry page — local preview without a connected backend.',
+    ],
+  ],
+};
+let galleryProject = null;
+let galleryIndex = 0;
+let galleryImages = [];
+function showScreenshot(index) {
+  galleryIndex = (index + galleryImages.length) % galleryImages.length;
+  const item = galleryImages[galleryIndex];
+  const image = document.createElement('img');
+  image.src = item.src;
+  image.alt = `${galleryProject.title}: ${item.caption}`;
+  image.decoding = 'async';
+  const art = document.querySelector('#dialog-art');
+  art.className = 'dialog-art screenshot-art';
+  art.replaceChildren(image);
+  document.querySelector('#screenshot-caption').textContent = item.caption;
+  document.querySelector('#gallery-counter').textContent =
+    `${galleryIndex + 1} / ${galleryImages.length}`;
+  document
+    .querySelectorAll('#gallery-thumbnails button')
+    .forEach((button, i) => {
+      button.setAttribute('aria-pressed', String(i === galleryIndex));
+    });
+}
+function openGallery(project, id) {
+  galleryProject = project;
+  galleryImages = [
+    { src: project.screenshot, caption: project.screenshotCaption },
+    ...extraScreenshots[id].map(([file, caption]) => ({
+      src: `assets/projects/${file}.webp`,
+      caption,
+    })),
+  ];
+  document.querySelector('#gallery-thumbnails').replaceChildren(
+    ...galleryImages.map((item, i) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.setAttribute('aria-label', `Screenshot ${i + 1}: ${item.caption}`);
+      const thumbnail = document.createElement('img');
+      thumbnail.src = item.src;
+      thumbnail.alt = '';
+      thumbnail.loading = 'lazy';
+      button.append(thumbnail);
+      button.addEventListener('click', () => showScreenshot(i));
+      return button;
+    }),
+  );
+  showScreenshot(0);
+}
+document
+  .querySelector('#gallery-prev')
+  .addEventListener('click', () => showScreenshot(galleryIndex - 1));
+document
+  .querySelector('#gallery-next')
+  .addEventListener('click', () => showScreenshot(galleryIndex + 1));
+document
+  .querySelector('#project-dialog')
+  .addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+      event.preventDefault();
+      showScreenshot(galleryIndex + (event.key === 'ArrowRight' ? 1 : -1));
+    }
+  });
 const navigation = document.querySelector('#navigation');
 function closeMenu() {
   menuButton.setAttribute('aria-expanded', 'false');
@@ -96,13 +185,7 @@ document.querySelectorAll('.project').forEach((button) => {
       .setAttribute('aria-label', `View ${project.title} on GitHub`);
     document.querySelector('#project-dialog .dialog-note').textContent =
       project.note;
-    const art = document.querySelector('#dialog-art');
-    art.className = `dialog-art ${button.dataset.project}-preview`;
-    art.replaceChildren(
-      ...Array.from(button.querySelector('.project-hover').children, (child) =>
-        child.cloneNode(true),
-      ),
-    );
+    openGallery(project, button.dataset.project);
     document.querySelector('#dialog-tags').replaceChildren(
       ...project.tags.map((tag) => {
         const span = document.createElement('span');

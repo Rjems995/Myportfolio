@@ -141,10 +141,17 @@
               ></span
             ><span class="project-service">Web & Mobile Development</span
             ><span class="project-arrow" aria-hidden="true">↗</span>
-            <span class="project-hover tally-preview" aria-hidden="true"
-              ><b>tally.</b><span>Scan. Review.<br />Understand.</span
-              ><i>RECEIPT SCANNER & EXPENSE TRACKER</i></span
-            >
+            <span
+              class="project-hover tally-preview screenshot-preview"
+              aria-hidden="true"
+              ><img
+                src="assets/projects/tally.webp"
+                alt="Tally expense dashboard with sample data"
+                width="1440"
+                height="960"
+                loading="lazy"
+                decoding="async"
+            /></span>
           </button>
           <button
             class="project"
@@ -159,10 +166,17 @@
               ></span
             ><span class="project-service">Full-stack Development</span
             ><span class="project-arrow" aria-hidden="true">↗</span>
-            <span class="project-hover campus-preview" aria-hidden="true"
-              ><b>campus.</b><span>Your campus.<br />Your marketplace.</span
-              ><i>LISTINGS · CHAT · COMMUNITY</i></span
-            >
+            <span
+              class="project-hover campus-preview screenshot-preview"
+              aria-hidden="true"
+              ><img
+                src="assets/projects/campus.webp"
+                alt="Campus Marketplace landing page"
+                width="1440"
+                height="960"
+                loading="lazy"
+                decoding="async"
+            /></span>
           </button>
           <button
             class="project"
@@ -177,11 +191,17 @@
               ></span
             ><span class="project-service">Geospatial Web Development</span
             ><span class="project-arrow" aria-hidden="true">↗</span>
-            <span class="project-hover evacu-preview" aria-hidden="true"
-              ><b>EVACU<br />ROSA</b
-              ><span>A map-first<br />evacuation project.</span
-              ><i>MAPS · ROUTING · OFFLINE DIRECTIONS</i></span
-            >
+            <span
+              class="project-hover evacu-preview screenshot-preview"
+              aria-hidden="true"
+              ><img
+                src="assets/projects/evacu.webp"
+                alt="EVACU-ROSA public evacuation map"
+                width="1440"
+                height="1372"
+                loading="lazy"
+                decoding="async"
+            /></span>
           </button>
         </div>
         <div class="work-bottom">
@@ -236,6 +256,26 @@
     <dialog id="project-dialog" aria-labelledby="dialog-title">
       <button class="dialog-close" aria-label="Close project details">×</button>
       <div id="dialog-art" class="dialog-art"></div>
+      <div class="gallery-controls" aria-label="Project screenshot navigation">
+        <button
+          id="gallery-prev"
+          type="button"
+          aria-label="Previous screenshot"
+        >
+          ←
+        </button>
+        <span id="gallery-counter" role="status" aria-live="polite"></span>
+        <button id="gallery-next" type="button" aria-label="Next screenshot">
+          →
+        </button>
+      </div>
+      <div
+        id="gallery-thumbnails"
+        class="gallery-thumbnails"
+        role="group"
+        aria-label="Choose a screenshot"
+      ></div>
+      <p id="screenshot-caption" class="screenshot-caption"></p>
       <div class="dialog-content">
         <span class="eyebrow">GITHUB PROJECT</span>
         <h2 id="dialog-title"></h2>
