@@ -237,7 +237,6 @@
       </section>
       <section class="contact" id="contact">
         <div class="section-shell">
-          <span class="eyebrow">HAVE SOMETHING IN MIND?</span>
           <div class="contact-heading">
             <h2>Let’s make<br /><span>something great.</span></h2>
             <span class="contact-arrow" aria-hidden="true">↘</span>
@@ -248,20 +247,13 @@
             </button>
           </div>
           <div class="contact-details">
-            <p>
-              A new idea, an interesting collaboration,<br />or just a hello.
-              I’d love to hear it.
-            </p>
-            <div class="contact-links">
-              <a href="mailto:robinwaje09@gmail.com">robinwaje09@gmail.com ↗</a
-              ><a href="tel:+639563580043">0956 358 0043 ↗</a
-              ><a
-                href="https://github.com/Rjems995"
-                target="_blank"
-                rel="noopener noreferrer"
-                >GitHub ↗</a
-              >
-            </div>
+            <a
+              class="pill-link"
+              href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=robinwaje09%40gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              >robinwaje09@gmail.com</a
+            ><a class="pill-link" href="tel:+639563580043">+63 956 358 0043</a>
           </div>
           <footer>
             <div>
@@ -319,7 +311,60 @@
       <button class="dialog-close" aria-label="Close contact details">×</button>
       <div class="dialog-content">
         <span class="eyebrow">LET’S CONNECT</span>
-        <h2 id="contact-title">Say hello.</h2>
+        <h2 id="contact-title">Let?s start a<br />project together.</h2>
+        <form id="contact-form">
+          <label class="contact-field"
+            ><span>01</span
+            ><span
+              >What?s your name?<input
+                name="name"
+                autocomplete="name"
+                placeholder="Your name *"
+                required
+                maxlength="100" /></span></label
+          ><label class="contact-field"
+            ><span>02</span
+            ><span
+              >What?s your email?<input
+                name="email"
+                type="email"
+                autocomplete="email"
+                placeholder="you@example.com *"
+                required
+                maxlength="254" /></span></label
+          ><label class="contact-field"
+            ><span>03</span
+            ><span
+              >What?s your organization?<input
+                name="organization"
+                autocomplete="organization"
+                placeholder="Company or organization"
+                maxlength="150" /></span></label
+          ><label class="contact-field"
+            ><span>04</span
+            ><span
+              >What services are you looking for?<input
+                name="service"
+                placeholder="Web development, design?"
+                maxlength="200" /></span></label
+          ><label class="contact-field"
+            ><span>05</span
+            ><span
+              >Your message<textarea
+                name="message"
+                rows="3"
+                placeholder="Tell me about your project *"
+                required
+                maxlength="3000"
+              ></textarea></span
+          ></label>
+          <div class="contact-send">
+            <p>Prepare a Gmail draft, then review and send it there.</p>
+            <button class="circle-button blue" type="submit">
+              Let?s talk ?
+            </button>
+          </div>
+        </form>
         <p id="contact-message">
           Have a project in mind? Send me a note and let’s start a conversation.
         </p>

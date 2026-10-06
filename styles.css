@@ -1268,3 +1268,158 @@ dialog::backdrop {
   font-size: clamp(40px, 10vw, 76px);
   line-height: 1;
 }
+.contact .contact-heading h2 {
+  color: #fff;
+  font-size: clamp(48px, 7vw, 100px);
+  line-height: 1.14;
+}
+.contact-heading h2 .contact-first-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 22px;
+  color: inherit;
+}
+.contact-avatar {
+  display: inline-block;
+  position: relative;
+  flex: 0 0 auto;
+  width: 0.95em;
+  height: 0.95em;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #999d9e;
+}
+.contact-avatar img {
+  width: 155%;
+  max-width: none;
+  position: absolute;
+  left: -27%;
+  top: -3%;
+  height: auto;
+}
+.contact .contact-details {
+  justify-content: flex-start;
+  align-items: center;
+  gap: 16px;
+  padding-top: 70px;
+  padding-bottom: 110px;
+  flex-wrap: wrap;
+}
+.contact-details .pill-link {
+  border-color: #ffffff40;
+  font-size: 16px;
+  padding: 27px 35px;
+}
+.footer-socials {
+  margin-left: auto;
+}
+.footer-socials a {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 12px;
+}
+#contact-dialog {
+  width: min(980px, calc(100% - 32px));
+  background: var(--ink);
+  color: white;
+}
+#contact-dialog .dialog-content {
+  padding: 60px 8%;
+}
+#contact-dialog .dialog-close {
+  background: #303136;
+  color: white;
+}
+#contact-dialog h2 {
+  font-size: clamp(38px, 5vw, 68px);
+}
+#contact-dialog .eyebrow,
+#contact-dialog p {
+  color: #a9aaa8;
+}
+#contact-dialog .pill-link {
+  border-color: #ffffff40;
+}
+.contact-field {
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  gap: 16px;
+  padding: 28px 0;
+  border-top: 1px solid #ffffff30;
+  font-size: 20px;
+}
+.contact-field > span:first-child {
+  color: #9d9d9d;
+  font-size: 11px;
+  padding-top: 6px;
+}
+.contact-field input,
+.contact-field textarea {
+  display: block;
+  width: 100%;
+  background: transparent;
+  border: 0;
+  color: white;
+  font: inherit;
+  font-size: 17px;
+  line-height: 1.5;
+  padding: 12px 0 0;
+  border-radius: 0;
+  resize: vertical;
+}
+.contact-field input::placeholder,
+.contact-field textarea::placeholder {
+  color: #91928f;
+}
+.contact-field input:focus-visible,
+.contact-field textarea:focus-visible {
+  outline: 2px solid #8c9aff;
+  outline-offset: 5px;
+}
+.contact-send {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 22px;
+  margin: 20px 0 40px;
+}
+.contact-send p {
+  max-width: 260px;
+  font-size: 13px;
+}
+.contact-send .circle-button {
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  .contact-heading h2 .contact-first-line {
+    gap: 12px;
+  }
+  .contact .contact-details {
+    display: flex;
+    padding-top: 80px;
+    padding-bottom: 55px;
+    gap: 12px;
+  }
+  .contact-details .pill-link {
+    padding: 20px 22px;
+    font-size: 13px;
+  }
+  .footer-socials {
+    margin-left: 0;
+  }
+  #contact-dialog .dialog-content {
+    padding: 48px 24px 24px;
+  }
+  .contact-field {
+    font-size: 17px;
+    gap: 8px;
+  }
+  .contact-field input,
+  .contact-field textarea {
+    font-size: 16px;
+  }
+  .contact-send .circle-button {
+    width: 110px;
+    height: 110px;
+  }
+}

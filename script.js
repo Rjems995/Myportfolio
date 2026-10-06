@@ -226,6 +226,28 @@ if (portfolio.email) {
     }
   });
 }
+document.querySelector('#contact-form').addEventListener('submit', (event) => {
+  event.preventDefault();
+  const form = event.currentTarget;
+  if (!form.reportValidity()) return;
+  const data = new FormData(form);
+  const body = `Hi Robin,\n\n${data.get('message')}\n\nName: ${data.get('name')}\nEmail: ${data.get('email')}\nOrganization: ${data.get('organization') || 'Not specified'}\nServices: ${data.get('service') || 'Not specified'}`;
+  const draft = new URL('https://mail.google.com/mail/');
+  draft.search = new URLSearchParams({
+    view: 'cm',
+    fs: '1',
+    to: portfolio.email,
+    su: `Project inquiry from ${data.get('name')}`,
+    body,
+  });
+  const link = document.querySelector('#email-link');
+  link.href = draft.href;
+  document.querySelector('#email-app-link').href =
+    `mailto:${portfolio.email}?subject=${encodeURIComponent(`Project inquiry from ${data.get('name')}`)}&body=${encodeURIComponent(body)}`;
+  link.click();
+  document.querySelector('#email-status').textContent =
+    'Draft prepared. If Gmail did not open, choose Email Robin below. Your message has not been sent yet.';
+});
 document
   .querySelector('#contact-open')
   .addEventListener('click', () =>
