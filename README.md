@@ -12,7 +12,7 @@ Open `index.html` in a browser to preview. No installation or build step is requ
 
 The page includes Open Graph and Twitter/X large-image card metadata. The 1200 × 630 PNG is `assets/social-preview.png`; its editable artwork is `assets/social-preview.html`.
 
-The public URL has not been chosen yet. Before publishing, run `npm run metadata:url -- https://YOUR-PUBLIC-ADDRESS/` followed by `npm run format`. This sets the canonical URL, `og:url`, and absolute preview-image URLs, including a repository subpath if present. Do not publish with relative preview-image URLs. Include `assets/social-preview.png` in the deployment. Social preview validation on messaging/social services can only be completed after the site is publicly accessible.
+The public URL is `https://rjems995.github.io/Myportfolio/`. Canonical, Open Graph, and preview-image URLs are configured for this address. To change domains, run `npm run metadata:url -- https://YOUR-PUBLIC-ADDRESS/` followed by `npm run format`. Include `assets/social-preview.png` in the deployment. Commit and push metadata changes to update GitHub Pages; social services may cache earlier previews.
 
 ## Content and assets
 
