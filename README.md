@@ -8,7 +8,13 @@ A responsive, dependency-free portfolio inspired by the layout and motion of htt
 
 Open `index.html` in a browser to preview. No installation or build step is required. Deploy `index.html`, `styles.css`, `script.js`, `animations.css`, `animations.js`, and `favicon.svg` to any static host.
 
-## Personalize
+## Sharing metadata
+
+The page includes Open Graph and Twitter/X large-image card metadata. The 1200 × 630 PNG is `assets/social-preview.png`; its editable artwork is `assets/social-preview.html`.
+
+The public URL has not been chosen yet. Before publishing, run `npm run metadata:url -- https://YOUR-PUBLIC-ADDRESS/` followed by `npm run format`. This sets the canonical URL, `og:url`, and absolute preview-image URLs, including a repository subpath if present. Do not publish with relative preview-image URLs. Include `assets/social-preview.png` in the deployment. Social preview validation on messaging/social services can only be completed after the site is publicly accessible.
+
+## Content and assets
 
 Project screenshots in `assets/projects/` were captured from local copies of the public repositories: Tally's built-in demo dashboard, Campus Marketplace's landing page with an empty temporary SQLite database, and EVACU-ROSA's public map without configured shelters. The map retains OpenStreetMap attribution. These are actual app captures, not mockups. Include these WebP assets when deploying.
 

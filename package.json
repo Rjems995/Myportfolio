@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "metadata:url": "node scripts/set-site-url.cjs",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },
