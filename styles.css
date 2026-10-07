@@ -60,6 +60,13 @@ a:focus-visible {
 button {
   border: 0;
 }
+.arrow-icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em;
+  flex-shrink: 0;
+}
 ::selection {
   background: var(--blue);
   color: white;
