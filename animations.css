@@ -1,5 +1,5 @@
 :root {
-  --motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 .welcome-curtain {
   position: fixed;
@@ -36,10 +36,10 @@
 }
 .motion-ready .reveal-item {
   opacity: 0;
-  transform: translate3d(0, 45px, 0);
+  transform: translate3d(0, 28px, 0);
   transition:
-    opacity 0.8s var(--motion-ease),
-    transform 1s var(--motion-ease);
+    opacity 0.65s var(--motion-ease),
+    transform 0.8s var(--motion-ease);
   transition-delay: var(--reveal-delay, 0ms);
 }
 .motion-ready .reveal-item.in-view {
@@ -184,10 +184,10 @@ footer > a:hover::after {
   width: 350px;
   height: auto;
   opacity: 0;
-  scale: 0.65;
+  scale: 0.94;
   transition:
     opacity 0.25s,
-    scale 0.55s var(--motion-ease);
+    scale 0.4s var(--motion-ease);
   will-change: transform;
 }
 .floating-project.visible {

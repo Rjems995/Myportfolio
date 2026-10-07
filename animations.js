@@ -186,6 +186,10 @@
     .querySelectorAll('.circle-button,.pill-link,.filter,.brand,nav a')
     .forEach((element) => {
       element.classList.add('magnetic');
+      let origin;
+      element.addEventListener('pointerenter', () => {
+        origin = element.getBoundingClientRect();
+      });
       element.addEventListener('pointermove', (event) => {
         if (
           reduced.matches ||
@@ -193,10 +197,10 @@
           event.pointerType === 'touch'
         )
           return;
-        const rect = element.getBoundingClientRect();
+        const rect = origin || element.getBoundingClientRect();
         const strength = element.classList.contains('circle-button')
-          ? 0.23
-          : 0.13;
+          ? 0.16
+          : 0.08;
         element.classList.add('is-magnetic');
         element.style.setProperty(
           '--magnet-x',
@@ -208,6 +212,7 @@
         );
       });
       element.addEventListener('pointerleave', () => {
+        origin = null;
         element.classList.remove('is-magnetic');
         element.style.setProperty('--magnet-x', '0px');
         element.style.setProperty('--magnet-y', '0px');
@@ -223,7 +228,26 @@
     pointerX = 0,
     pointerY = 0,
     previewX = 0,
-    previewY = 0;
+    previewY = 0,
+    previewWidth = 350,
+    previewHeight = 340;
+  new ResizeObserver(() => {
+    previewWidth = preview.offsetWidth;
+    previewHeight = preview.offsetHeight;
+  }).observe(preview);
+  function positionPreview() {
+    const left = clamp(
+      previewX - previewWidth / 2,
+      12,
+      innerWidth - previewWidth - 12,
+    );
+    const top = clamp(
+      previewY - previewHeight / 2,
+      12,
+      innerHeight - previewHeight - 12,
+    );
+    preview.style.transform = `translate3d(${left}px,${top}px,0)`;
+  }
   function hidePreview() {
     hover = false;
     preview.classList.remove('visible');
@@ -236,6 +260,7 @@
       preview.replaceChildren(art);
       previewX = pointerX = event.clientX;
       previewY = pointerY = event.clientY;
+      positionPreview();
       hover = true;
       preview.classList.add('visible');
       root.classList.add('cursor-preview-active');
@@ -252,6 +277,7 @@
     last = 0,
     offset = 0,
     direction = -1,
+    currentDirection = -1,
     boost = 0,
     previousScroll = scrollY,
     heroVisible = true,
@@ -270,20 +296,19 @@
     if (reduced.matches || document.hidden) return;
     const dt = Math.min(time - (last || time), 48);
     last = time;
+    const follow = 1 - Math.exp(-dt / 90);
     if (heroVisible) {
-      offset += ((direction * marqueeWidth) / 30000) * (1 + boost) * dt;
+      currentDirection +=
+        (direction - currentDirection) * (1 - Math.exp(-dt / 180));
+      offset += ((currentDirection * marqueeWidth) / 34000) * (1 + boost) * dt;
       offset = ((offset % marqueeWidth) - marqueeWidth) % marqueeWidth;
       marquee.style.transform = `translate3d(${offset}px,0,0)`;
       boost *= Math.pow(0.97, dt / 16);
     }
     if (hover) {
-      previewX += (pointerX - previewX) * 0.16;
-      previewY += (pointerY - previewY) * 0.16;
-      const width = preview.offsetWidth;
-      const height = preview.offsetHeight;
-      const left = clamp(previewX - width / 2, 12, innerWidth - width - 12);
-      const top = clamp(previewY - height / 2, 12, innerHeight - height - 12);
-      preview.style.transform = `translate3d(${left}px,${top}px,0)`;
+      previewX += (pointerX - previewX) * follow;
+      previewY += (pointerY - previewY) * follow;
+      positionPreview();
     }
     if (heroVisible || hover) frame = requestAnimationFrame(tick);
   }
@@ -463,25 +488,26 @@
         animate(
           dialog,
           [
-            { opacity: 0, transform: 'translateY(35px) scale(.96)' },
+            { opacity: 0, transform: 'translateY(22px) scale(.985)' },
             { opacity: 1, transform: 'translateY(0) scale(1)' },
           ],
-          { duration: 500, easing: 'cubic-bezier(.16,1,.3,1)' },
+          { duration: 420, easing: 'cubic-bezier(.22,1,.36,1)' },
         );
     }).observe(dialog, { attributes: true, attributeFilter: ['open'] });
     let closing = false;
     async function closeAnimated(event) {
-      if (reduced.matches || closing) return;
+      if (reduced.matches) return;
       event.preventDefault();
       event.stopImmediatePropagation();
+      if (closing) return;
       closing = true;
+      const style = getComputedStyle(dialog);
+      const from = { opacity: style.opacity, transform: style.transform };
+      dialog.getAnimations().forEach((animation) => animation.cancel());
       await animate(
         dialog,
-        [
-          { opacity: 1, transform: 'translateY(0) scale(1)' },
-          { opacity: 0, transform: 'translateY(20px) scale(.98)' },
-        ],
-        { duration: 180, easing: 'ease-in' },
+        [from, { opacity: 0, transform: 'translateY(12px) scale(.99)' }],
+        { duration: 200, easing: 'cubic-bezier(.4,0,1,1)' },
       );
       dialog.close();
       closing = false;
@@ -490,6 +516,21 @@
       .querySelector('.dialog-close')
       .addEventListener('click', closeAnimated, true);
     dialog.addEventListener('cancel', closeAnimated);
+    dialog.addEventListener(
+      'click',
+      (event) => {
+        const rect = dialog.getBoundingClientRect();
+        if (
+          event.target === dialog &&
+          (event.clientX < rect.left ||
+            event.clientX > rect.right ||
+            event.clientY < rect.top ||
+            event.clientY > rect.bottom)
+        )
+          closeAnimated(event);
+      },
+      true,
+    );
   });
   reduced.addEventListener('change', () => {
     if (reduced.matches) {
@@ -511,25 +552,26 @@
   // Damped desktop wheel scrolling; touch, keyboard, and modal scrolling stay native.
   let wheelFrame = 0,
     wheelTarget = scrollY,
+    wheelPosition = scrollY,
     wheelTime = 0;
   function stopWheel() {
     cancelAnimationFrame(wheelFrame);
     wheelFrame = 0;
     wheelTarget = scrollY;
+    wheelPosition = scrollY;
   }
   function wheelTick(time) {
     const elapsed = Math.min(time - (wheelTime || time), 48);
     wheelTime = time;
     const next =
-      scrollY + (wheelTarget - scrollY) * (1 - Math.exp(-elapsed / 105));
-    if (
-      Math.abs(wheelTarget - scrollY) < 1 ||
-      (elapsed > 0 && Math.abs(next - scrollY) < 0.5)
-    ) {
+      wheelPosition +
+      (wheelTarget - wheelPosition) * (1 - Math.exp(-elapsed / 120));
+    if (Math.abs(wheelTarget - wheelPosition) < 0.5) {
       window.scrollTo({ top: wheelTarget, behavior: 'instant' });
       wheelFrame = 0;
       return;
     }
+    wheelPosition = next;
     window.scrollTo({ top: next, behavior: 'instant' });
     wheelFrame = requestAnimationFrame(wheelTick);
   }
@@ -547,7 +589,7 @@
         nav.classList.contains('open')
       )
         return;
-      if (!wheelFrame) wheelTarget = scrollY;
+      if (!wheelFrame) wheelTarget = wheelPosition = scrollY;
       const unit =
         event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? innerHeight : 1;
       wheelTarget = clamp(
