@@ -1390,7 +1390,104 @@ dialog::backdrop {
 .contact-send .circle-button {
   flex-shrink: 0;
 }
+/* Touch layouts keep project previews visible without requiring a hover. */
+@media (max-width: 850px) {
+  .project {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 44px;
+    gap: 16px 12px;
+    padding: 28px 0;
+  }
+  .project-number,
+  .project-service {
+    display: none;
+  }
+  .project-title {
+    font-size: clamp(26px, 5vw, 40px);
+    letter-spacing: -1px;
+    line-height: 1.15;
+  }
+  .project-title small {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .project-arrow {
+    margin: 0;
+    justify-self: center;
+  }
+  .project .project-hover.screenshot-preview {
+    display: block;
+    position: static;
+    grid-column: 1 / -1;
+    width: 100%;
+    opacity: 1;
+    transform: none;
+    box-shadow: none;
+    border: 1px solid var(--line);
+  }
+  .project:hover .project-title {
+    transform: none;
+  }
+  .screenshot-preview img {
+    height: auto;
+    aspect-ratio: 3 / 2;
+    object-fit: contain;
+  }
+}
 @media (max-width: 600px) {
+  .filters {
+    flex-wrap: wrap;
+  }
+  .filter {
+    min-height: 44px;
+    font-size: 12px;
+  }
+  .work-heading h2 {
+    font-size: clamp(34px, 9vw, 44px);
+  }
+  .superscript {
+    margin-left: 6px;
+    font-size: 12px;
+  }
+  .hero-portrait img {
+    width: min(540px, 138vw);
+  }
+  .contact .contact-heading h2 {
+    font-size: clamp(36px, 10vw, 54px);
+    letter-spacing: -1.5px;
+  }
+  .contact-details .pill-link {
+    width: 100%;
+    justify-content: center;
+    overflow-wrap: anywhere;
+  }
+  dialog {
+    max-height: calc(100dvh - 24px);
+    overscroll-behavior: contain;
+  }
+  .dialog-art.screenshot-art {
+    height: auto;
+    aspect-ratio: 3 / 2;
+  }
+  .gallery-thumbnails {
+    gap: 6px;
+    padding: 0 16px 16px;
+  }
+  .gallery-thumbnails img {
+    height: 52px;
+  }
+  .contact-field {
+    grid-template-columns: 20px minmax(0, 1fr);
+  }
+  .contact-field > span {
+    min-width: 0;
+  }
+  .contact-send {
+    flex-wrap: wrap;
+  }
+  .contact footer {
+    padding-bottom: max(24px, env(safe-area-inset-bottom));
+  }
   .contact-heading h2 .contact-first-line {
     gap: 12px;
   }
