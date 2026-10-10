@@ -92,3 +92,13 @@
     document.body.classList.add('modal-open');
   });
 })();
+
+const contributionsChart = document.querySelector('#contributions-chart');
+function showContributionFallback() {
+  document.querySelector('.contributions-scroll').hidden = true;
+  document.querySelector('#contributions-fallback').hidden = false;
+}
+contributionsChart.addEventListener('error', showContributionFallback);
+if (contributionsChart.complete && !contributionsChart.naturalWidth) {
+  showContributionFallback();
+}
