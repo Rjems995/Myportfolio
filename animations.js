@@ -77,12 +77,28 @@
   let curtain;
   async function welcome() {
     if (reduced.matches) return;
+    try {
+      if (sessionStorage.getItem('portfolio-welcome-seen')) return;
+      sessionStorage.setItem('portfolio-welcome-seen', 'true');
+    } catch {
+      // The introduction still works when browser storage is unavailable.
+    }
+    let skipped = false;
     curtain = document.createElement('div');
     curtain.className = 'welcome-curtain';
-    curtain.setAttribute('aria-hidden', 'true');
     const word = document.createElement('span');
     word.className = 'welcome-word';
-    curtain.append(word);
+    word.setAttribute('aria-hidden', 'true');
+    const skip = document.createElement('button');
+    skip.className = 'welcome-skip';
+    skip.textContent = 'Skip introduction';
+    skip.addEventListener('click', () => {
+      skipped = true;
+      running.forEach((animation) => animation.cancel());
+      curtain.remove();
+      document.querySelector('.brand').focus({ preventScroll: true });
+    });
+    curtain.append(word, skip);
     document.body.append(curtain);
     const greetings = [
       { text: 'Hello', lang: 'en', duration: 450 },
@@ -104,7 +120,7 @@
         2500,
     );
     for (const [index, greeting] of greetings.entries()) {
-      if (reduced.matches) break;
+      if (skipped || reduced.matches) break;
       word.textContent = greeting.text;
       word.lang = greeting.lang;
       // Quick word changes, with longer holds on the first and final greetings.
@@ -119,6 +135,10 @@
         ],
         { duration: greeting.duration, easing: 'linear' },
       );
+    }
+    if (skipped) {
+      clearTimeout(fallback);
+      return;
     }
     const points = (progress) => {
       const height = innerHeight,

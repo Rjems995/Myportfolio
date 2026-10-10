@@ -423,3 +423,34 @@ nav.drawer-mode .nav-dot {
     transition: none;
   }
 }
+.welcome-skip {
+  position: absolute;
+  bottom: max(32px, env(safe-area-inset-bottom));
+  right: 6%;
+  min-height: 44px;
+  padding: 12px 20px;
+  border: 1px solid #ffffff80;
+  border-radius: 30px;
+  color: white;
+  background: transparent;
+  font-size: 14px;
+}
+.welcome-skip:focus-visible {
+  outline: 3px solid white;
+  outline-offset: 5px;
+}
+@media (max-width: 600px) {
+  .floating-menu {
+    width: 44px;
+    height: 44px;
+    right: 8px;
+    top: 12px;
+  }
+  .floating-menu.shown:not([aria-expanded='true']) {
+    top: auto;
+    bottom: max(12px, env(safe-area-inset-bottom));
+  }
+  body:has(.floating-menu.shown) .contact footer {
+    padding-bottom: 76px;
+  }
+}

@@ -1527,3 +1527,67 @@ dialog::backdrop {
     height: 110px;
   }
 }
+.hero-summary {
+  display: block;
+  margin-top: 12px;
+  font-size: 15px;
+  line-height: 1.5;
+  letter-spacing: 0;
+  max-width: 310px;
+}
+.project-outcomes {
+  border-top: 1px solid var(--line);
+  margin: 24px 0;
+  padding-top: 16px;
+}
+.project-outcomes h3 {
+  font-size: 16px;
+  margin: 0 0 8px;
+}
+.project-outcomes p {
+  margin: 0;
+  line-height: 1.6;
+}
+.project-title small,
+.project-number,
+.service p,
+.sample-note,
+.work-bottom p,
+.intro-side p {
+  color: #60625e;
+}
+.contact .eyebrow,
+.contact footer p {
+  color: #b8b9b6;
+}
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid #455ce9;
+  outline-offset: 5px;
+}
+.contact a:focus-visible,
+.contact button:focus-visible,
+#contact-dialog :focus-visible {
+  outline-color: #b6c0ff;
+}
+@media (max-width: 850px) {
+  .preview-summary {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+@media (max-width: 600px) {
+  .hero-summary {
+    font-size: 13px;
+    max-width: 250px;
+  }
+  .hero .location {
+    bottom: 180px;
+  }
+  .hero-role {
+    bottom: 82px;
+    gap: 16px;
+  }
+}

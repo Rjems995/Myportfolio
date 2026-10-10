@@ -37,6 +37,21 @@ const portfolio = {
   },
 };
 
+const projectOutcomes = {
+  tally: [
+    'Receipt workflow',
+    'Scan, review, and search receipts, then explore spending and export records.',
+  ],
+  campus: [
+    'Student marketplace',
+    'Browse listings, contact sellers in real time, and review transactions.',
+  ],
+  evacu: [
+    'Evacuation planning',
+    'Explore hazards and transport-aware routes with offline guidance support.',
+  ],
+};
+
 const menuButton = document.querySelector('.menu-toggle');
 const extraScreenshots = {
   tally: [
@@ -179,6 +194,12 @@ document.querySelectorAll('.project').forEach((button) => {
     document.querySelector('#dialog-title').textContent = project.title;
     document.querySelector('#dialog-description').textContent =
       project.description;
+    const [label, outcome] = projectOutcomes[button.dataset.project];
+    const heading = document.createElement('h3');
+    heading.textContent = label;
+    const detail = document.createElement('p');
+    detail.textContent = outcome;
+    document.querySelector('#dialog-outcomes').replaceChildren(heading, detail);
     document.querySelector('#dialog-repository').href = project.url;
     document
       .querySelector('#dialog-repository')
