@@ -1326,9 +1326,13 @@ dialog::backdrop {
   font-size: 12px;
 }
 #contact-dialog {
+  scrollbar-width: none;
   width: min(980px, calc(100% - 32px));
   background: var(--ink);
   color: white;
+}
+#contact-dialog::-webkit-scrollbar {
+  display: none;
 }
 #contact-dialog .dialog-content {
   padding: 60px 8%;
