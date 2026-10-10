@@ -1595,3 +1595,204 @@ button:focus-visible {
     gap: 16px;
   }
 }
+/* Shared visual rhythm across the portfolio. */
+:root {
+  --space-section: clamp(64px, 8vw, 112px);
+  --text-body: 15px;
+  --text-label: 11px;
+}
+.section-shell {
+  padding-top: var(--space-section);
+  padding-bottom: var(--space-section);
+}
+.eyebrow {
+  font-size: var(--text-label);
+  letter-spacing: 0.14em;
+}
+.intro-side p,
+.service p,
+.dialog-content p {
+  font-size: var(--text-body);
+  line-height: 1.75;
+}
+.intro-grid {
+  gap: 8%;
+}
+.expertise {
+  margin-top: clamp(48px, 6vw, 80px);
+}
+.work {
+  padding-top: 24px;
+}
+.work-heading h2,
+.intro-grid h2 {
+  text-wrap: balance;
+}
+.project-title {
+  line-height: 1.15;
+}
+.project-title small {
+  line-height: 1.6;
+}
+.screenshot-preview img {
+  height: auto;
+  aspect-ratio: 3 / 2;
+  padding: 16px;
+  object-fit: contain;
+  background: #eceeeb;
+  border-bottom: 1px solid var(--line);
+}
+.project-hover.screenshot-preview {
+  border-radius: 12px;
+}
+.dialog-art.screenshot-art {
+  height: auto;
+  aspect-ratio: 3 / 2;
+  max-height: 60svh;
+  padding: clamp(12px, 3vw, 32px);
+  background: #eceeeb;
+}
+.screenshot-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.gallery-thumbnails button {
+  border-radius: 8px;
+  background: #eceeeb;
+}
+.pill-link {
+  min-height: 48px;
+  padding: 18px 26px;
+  gap: 20px;
+  font-size: 13px;
+  line-height: 1.4;
+  border-width: 1px;
+  justify-content: space-between;
+}
+.pill-link .arrow-icon,
+.circle-button .arrow-icon {
+  width: 16px;
+  height: 16px;
+}
+.circle-button {
+  font-size: 13px;
+  line-height: 1.4;
+  padding: 16px;
+  text-align: center;
+}
+.contact-details .pill-link {
+  font-size: 15px;
+  padding: 22px 28px;
+}
+.contact-heading {
+  gap: 24px;
+}
+.contact .contact-heading h2 {
+  letter-spacing: -0.045em;
+  margin-bottom: 80px;
+}
+.contact-heading .line-inner {
+  padding-bottom: 0.06em;
+}
+.contact .contact-details {
+  padding-bottom: 72px;
+}
+@media (min-width: 851px) {
+  .hero-role {
+    top: 29%;
+    right: 5%;
+    max-width: 250px;
+  }
+  .hero-role p {
+    margin-top: 24px;
+  }
+  .hero-summary {
+    font-size: 14px;
+  }
+  .hero-portrait img {
+    left: 46%;
+  }
+}
+@media (max-width: 600px) {
+  .section-shell {
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+  .hero {
+    height: 100svh;
+    min-height: 680px;
+  }
+  .hero-art.hero-portrait {
+    inset: 72px 0 0;
+  }
+  .hero-portrait img {
+    width: min(500px, 128vw);
+  }
+  .name-marquee {
+    bottom: 32%;
+    font-size: clamp(76px, 22vw, 120px);
+  }
+  .hero-role {
+    bottom: 88px;
+    align-items: flex-start;
+  }
+  .hero-role .direction {
+    font-size: 26px;
+  }
+  .hero-role p {
+    font-size: 20px;
+  }
+  .hero-summary {
+    margin-top: 8px;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .hero .location {
+    bottom: 220px;
+  }
+  .intro-grid {
+    gap: 24px;
+  }
+  .intro-grid h2 {
+    font-size: clamp(30px, 8vw, 40px);
+  }
+  .service h4 {
+    font-size: 19px;
+  }
+  .service p {
+    font-size: 14px;
+  }
+  .project {
+    padding: 24px 0;
+  }
+  .project-hover > .preview-copy {
+    padding: 16px;
+  }
+  .contact .contact-heading h2 {
+    font-size: clamp(38px, 10vw, 58px);
+    margin-bottom: 78px;
+  }
+  .contact-heading {
+    gap: 8px;
+  }
+  .contact-arrow {
+    font-size: 30px;
+    margin-left: 0;
+  }
+  .contact .contact-details {
+    padding-bottom: 48px;
+  }
+  .contact-details .pill-link {
+    font-size: 14px;
+    padding: 18px 22px;
+  }
+}
+@media (prefers-reduced-motion: no-preference) and (hover: hover) {
+  .pill-link .arrow-icon {
+    transition: transform 0.25s ease;
+  }
+  .pill-link:hover .arrow-icon {
+    transform: translate(2px, -2px);
+  }
+}
