@@ -2072,7 +2072,7 @@ button:focus-visible {
 .contributions-scroll img {
   display: block;
   width: 100%;
-  min-width: 722px;
+  min-width: 0;
   height: auto;
 }
 .contributions-caption {
@@ -2121,5 +2121,33 @@ button:focus-visible {
   .contributions-heading {
     align-items: flex-start;
     flex-direction: column;
+  }
+}
+@media (max-width: 600px) {
+  .contributions-heading {
+    gap: 16px;
+  }
+  .contributions-heading h2 {
+    font-size: 30px;
+    margin-top: 12px;
+  }
+  .contributions-intro {
+    font-size: 14px;
+    margin: 16px 0;
+  }
+  .contributions-card {
+    padding: 12px;
+  }
+  .contributions-scroll {
+    padding: 0;
+  }
+  .contributions-caption {
+    gap: 8px;
+    margin-top: 12px;
+    font-size: 11px;
+  }
+  .contributions-caption i {
+    width: 9px;
+    height: 9px;
   }
 }
