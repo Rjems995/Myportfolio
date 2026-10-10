@@ -53,6 +53,7 @@
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="animations.css" />
+    <script src="enhancements.js" defer></script>
     <script src="script.js" defer></script>
     <script src="animations.js" defer></script>
     <meta property="og:url" content="https://rjems995.github.io/Myportfolio/" />
@@ -62,7 +63,10 @@
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <a class="brand" href="#home" aria-label="Robin home"
-        ><span class="brand-symbol">©</span> <span>Code by Robin</span></a
+        ><span class="brand-symbol" aria-hidden="true"
+          >rw<span class="brand-dot">.</span></span
+        >
+        <span>Code by Robin</span></a
       >
       <button
         class="menu-toggle"
@@ -155,13 +159,31 @@
               >Digital experiences that click.</span
             >
           </h2>
+          <aside class="resume-card" aria-label="Resume and education">
+            <span class="eyebrow">BACKGROUND &amp; EXPERIENCE</span>
+            <a
+              class="pill-link resume-link"
+              href="assets/robin-james-waje-resume.pdf"
+              download
+              >Download r&eacute;sum&eacute; <span>PDF &middot; 134 KB</span></a
+            >
+            <p class="education-note">
+              BS Information Technology &middot; 2023&ndash;present<br />TESDA
+              coursework in CSS, computer systems, networks, and servers.
+            </p>
+          </aside>
           <div class="intro-side">
             <p>
-              I’m Robin James Waje, a designer and developer who enjoys turning
-              ideas into clear, engaging experiences for the web. My approach
-              brings together curiosity, attention to detail, and a love for
-              making things work beautifully.
+              I&rsquo;m Robin James Waje, a fourth-year BS Information
+              Technology student at the Polytechnic University of the
+              Philippines, based in Santa Rosa, Laguna.
             </p>
+            <p>
+              I build practical web projects, from student marketplaces to
+              evacuation guidance. I&rsquo;m looking for opportunities to apply
+              my skills, learn from a team, and contribute to useful products.
+            </p>
+
             <a class="circle-button" href="#expertise"
               >More about me
               <span aria-hidden="true"
@@ -407,6 +429,7 @@
           ></a>
         </div>
       </section>
+
       <section class="contact" id="contact">
         <div class="section-shell">
           <div class="contact-heading">
@@ -497,7 +520,15 @@
     </main>
     <dialog id="project-dialog" aria-labelledby="dialog-title">
       <button class="dialog-close" aria-label="Close project details">×</button>
-      <div id="dialog-art" class="dialog-art"></div>
+      <button
+        id="dialog-art"
+        class="dialog-art"
+        type="button"
+        aria-label="Enlarge screenshot"
+      ></button>
+      <p class="gallery-hint">
+        Swipe to browse &middot; Tap an image to enlarge
+      </p>
       <div class="gallery-controls" aria-label="Project screenshot navigation">
         <button
           id="gallery-prev"
@@ -546,30 +577,67 @@
         <span class="eyebrow">GITHUB PROJECT</span>
         <h2 id="dialog-title"></h2>
         <p id="dialog-description"></p>
+        <div id="dialog-story" class="case-study"></div>
         <div id="dialog-outcomes" class="project-outcomes"></div>
         <div id="dialog-tags" class="tags"></div>
+        <section
+          class="playground"
+          hidden
+          id="playground"
+          aria-labelledby="playground-title"
+        >
+          <div class="work-heading">
+            <div>
+              <span class="eyebrow">TALLY / INTERACTIVE PREVIEW</span>
+              <h2 id="playground-title">Try the workflow.</h2>
+            </div>
+          </div>
+          <p class="playground-intro">
+            A small expense explorer inspired by Tally. Filter the sample
+            records and see the totals respond.
+          </p>
+          <div class="demo-panel">
+            <div class="demo-toolbar">
+              <label
+                >Search sample expenses<input
+                  id="demo-search"
+                  type="search"
+                  placeholder="Try coffee or groceries" /></label
+              ><label
+                >Category<select id="demo-category">
+                  <option value="all">All categories</option>
+                  <option>Food</option>
+                  <option>Transport</option>
+                  <option>Supplies</option>
+                </select></label
+              ><button id="demo-reset" class="pill-link" type="button">
+                Reset
+              </button>
+            </div>
+            <div class="demo-summary" role="status" aria-live="polite">
+              <span id="demo-count"></span><strong id="demo-total"></strong>
+            </div>
+            <ul id="demo-records" class="demo-records"></ul>
+            <p class="demo-disclaimer">
+              Illustrative sample data. This interactive preview runs in your
+              browser; it does not scan receipts or connect to your accounts.
+            </p>
+          </div>
+        </section>
         <a
           id="dialog-repository"
           class="pill-link repository-link"
           target="_blank"
           rel="noopener noreferrer"
-          >View on GitHub
-          <span aria-hidden="true"
-            ><svg
-              class="arrow-icon"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-              focusable="false"
-            >
-              <path d="M5 19 19 5M5 5h14v14" /></svg></span
-        ></a>
+          >View on GitHub</a
+        >
         <p class="dialog-note"></p>
       </div>
+    </dialog>
+    <dialog id="image-dialog" aria-label="Enlarged project screenshot">
+      <button class="dialog-close" aria-label="Close enlarged screenshot">
+        &times;</button
+      ><img id="enlarged-image" alt="" />
     </dialog>
     <dialog id="contact-dialog" aria-labelledby="contact-title">
       <button class="dialog-close" aria-label="Close contact details">×</button>

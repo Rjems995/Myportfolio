@@ -6,7 +6,7 @@ Run `npm install` once to install Prettier, then use `npm run format` to format 
 
 A responsive, dependency-free portfolio inspired by the layout and motion of https://aadarshrai.vercel.app/. All implementation and decorative visuals are original; no reference photos or personal details are reused.
 
-Open `index.html` in a browser to preview. No installation or build step is required. Deploy `index.html`, `styles.css`, `script.js`, `animations.css`, `animations.js`, and `favicon.svg` to any static host.
+Open `index.html` in a browser to preview. No installation or build step is required. Deploy `index.html`, `styles.css`, `script.js`, `animations.css`, `animations.js`, `enhancements.js`, `favicon.svg`, and the `assets` folder to any static host.
 
 ## Sharing metadata
 
@@ -28,4 +28,8 @@ Includes category filtering, project detail dialogs, a mobile menu, a live local
 
 Animation includes a curved multilingual welcome curtain, hero entrance, magnetic buttons with rising fills, staggered scroll and text reveals, a direction-aware name marquee, cursor-following project previews, globe rotation, parallax, a curved footer reveal, a sliding navigation drawer, animated project filtering, and dialog transitions. Motion adapts to touch devices and the system reduced-motion setting; continuous animation pauses when the page is hidden.
 
-The opening sequence cycles through greetings in 12 languages, starting with “Hello” and ending with “Kumusta,” before the curved reveal. It replays on reload, including when the URL has a section anchor. Edit the `greetings` array in `animations.js` to change the words or timing.
+The opening sequence cycles through greetings in 12 languages, starting with “Hello” and ending with “Kumusta,” before the curved reveal. It plays once per browser session and includes a skip button. Edit the `greetings` array in `animations.js` to change the words or timing.
+
+## Project stories and interactive preview
+
+Edit `projectStories` in `script.js` for project context and technical details. The expense explorer in `enhancements.js` uses clearly labeled sample data and runs entirely in the browser. Galleries support swipe navigation and an enlarged-image dialog. The About section uses the supplied CV; replace `assets/robin-james-waje-resume.pdf` when updating the resume.

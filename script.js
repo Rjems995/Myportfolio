@@ -51,6 +51,50 @@ const projectOutcomes = {
     'Explore hazards and transport-aware routes with offline guidance support.',
   ],
 };
+const projectStories = {
+  tally: [
+    [
+      'The problem',
+      'Receipt photos are difficult to search and turn into a useful view of spending.',
+    ],
+    [
+      'The approach',
+      'Connect browser-local OCR to an editable review step, then organize the records for analytics and export.',
+    ],
+    [
+      'Technical detail',
+      'Tesseract handles text extraction in the browser; Python and SQLite support the expense workflow. Capacitor extends the interface to mobile.',
+    ],
+  ],
+  campus: [
+    [
+      'The problem',
+      'Student buying and selling involves more than listings: discovery, communication, and seller feedback all need to work together.',
+    ],
+    [
+      'The approach',
+      'Bring searchable listings, favorites, conversations, and reviews into one marketplace, with a moderation workflow.',
+    ],
+    [
+      'Technical detail',
+      'Flask and PostgreSQL support the application data, while Socket.IO supports real-time conversations.',
+    ],
+  ],
+  evacu: [
+    [
+      'The problem',
+      'Evacuation planning needs to account for hazards, shelter information, and different transport options.',
+    ],
+    [
+      'The approach',
+      'Combine a map interface with hazard reporting, transport-aware routing, and downloadable guidance.',
+    ],
+    [
+      'Technical detail',
+      'Leaflet presents the map, PostGIS supports geographic data, and A* routing and fuzzy inference support route planning. Field validation remains necessary.',
+    ],
+  ],
+};
 
 const menuButton = document.querySelector('.menu-toggle');
 const extraScreenshots = {
@@ -174,7 +218,10 @@ document.querySelectorAll('dialog').forEach((dialog) => {
     .querySelector('.dialog-close')
     .addEventListener('click', () => dialog.close());
   dialog.addEventListener('close', () =>
-    document.body.classList.remove('modal-open'),
+    document.body.classList.toggle(
+      'modal-open',
+      !!document.querySelector('dialog[open]'),
+    ),
   );
   dialog.addEventListener('click', (event) => {
     const rect = dialog.getBoundingClientRect();
@@ -194,12 +241,25 @@ document.querySelectorAll('.project').forEach((button) => {
     document.querySelector('#dialog-title').textContent = project.title;
     document.querySelector('#dialog-description').textContent =
       project.description;
+    document.querySelector('#dialog-story').replaceChildren(
+      ...projectStories[button.dataset.project].map(([title, copy]) => {
+        const section = document.createElement('section');
+        const heading = document.createElement('h3');
+        heading.textContent = title;
+        const paragraph = document.createElement('p');
+        paragraph.textContent = copy;
+        section.append(heading, paragraph);
+        return section;
+      }),
+    );
     const [label, outcome] = projectOutcomes[button.dataset.project];
     const heading = document.createElement('h3');
     heading.textContent = label;
     const detail = document.createElement('p');
     detail.textContent = outcome;
     document.querySelector('#dialog-outcomes').replaceChildren(heading, detail);
+    document.querySelector('#playground').hidden =
+      button.dataset.project !== 'tally';
     document.querySelector('#dialog-repository').href = project.url;
     document
       .querySelector('#dialog-repository')
