@@ -250,45 +250,67 @@ document.querySelectorAll('dialog').forEach((dialog) => {
       dialog.close();
   });
 });
-document.querySelectorAll('.project').forEach((button) => {
+const projectDialog = document.querySelector('#project-dialog');
+const projectCards = [...document.querySelectorAll('.project')];
+const projectOrder = projectCards.map((button) => button.dataset.project);
+const nextProjectButton = document.querySelector('#project-next');
+
+function showProject(id) {
+  const project = portfolio.projects[id];
+  document.querySelector('#dialog-title').textContent = project.title;
+  document.querySelector('#dialog-description').textContent =
+    project.description;
+  document.querySelector('#dialog-story').replaceChildren(
+    ...projectStories[id].map(([title, copy]) => {
+      const section = document.createElement('section');
+      const heading = document.createElement('h3');
+      heading.textContent = title;
+      const paragraph = document.createElement('p');
+      paragraph.textContent = copy;
+      section.append(heading, paragraph);
+      return section;
+    }),
+  );
+  const [label, outcome] = projectOutcomes[id];
+  const heading = document.createElement('h3');
+  heading.textContent = label;
+  const detail = document.createElement('p');
+  detail.textContent = outcome;
+  document.querySelector('#dialog-outcomes').replaceChildren(heading, detail);
+  document.querySelector('#dialog-repository').href = project.url;
+  document
+    .querySelector('#dialog-repository')
+    .setAttribute('aria-label', `View ${project.title} on GitHub`);
+  document.querySelector('#project-dialog .dialog-note').textContent =
+    project.note;
+  openGallery(project, id);
+  document.querySelector('#dialog-tags').replaceChildren(
+    ...project.tags.map((tag) => {
+      const span = document.createElement('span');
+      span.textContent = tag;
+      return span;
+    }),
+  );
+  const index = projectOrder.indexOf(id);
+  const nextId = projectOrder[(index + 1) % projectOrder.length];
+  const nextTitle = portfolio.projects[nextId].title;
+  nextProjectButton.dataset.project = nextId;
+  nextProjectButton.setAttribute('aria-label', `Next project: ${nextTitle}`);
+  document.querySelector('#project-next-title').textContent = nextTitle;
+  document.querySelector('#project-position').textContent =
+    `${project.title} · Project ${index + 1} of ${projectOrder.length}`;
+  if (!projectDialog.open) openDialog(projectDialog);
+  projectDialog.scrollTop = 0;
+}
+
+projectCards.forEach((button) => {
   button.addEventListener('click', () => {
-    const project = portfolio.projects[button.dataset.project];
-    document.querySelector('#dialog-title').textContent = project.title;
-    document.querySelector('#dialog-description').textContent =
-      project.description;
-    document.querySelector('#dialog-story').replaceChildren(
-      ...projectStories[button.dataset.project].map(([title, copy]) => {
-        const section = document.createElement('section');
-        const heading = document.createElement('h3');
-        heading.textContent = title;
-        const paragraph = document.createElement('p');
-        paragraph.textContent = copy;
-        section.append(heading, paragraph);
-        return section;
-      }),
-    );
-    const [label, outcome] = projectOutcomes[button.dataset.project];
-    const heading = document.createElement('h3');
-    heading.textContent = label;
-    const detail = document.createElement('p');
-    detail.textContent = outcome;
-    document.querySelector('#dialog-outcomes').replaceChildren(heading, detail);
-    document.querySelector('#dialog-repository').href = project.url;
-    document
-      .querySelector('#dialog-repository')
-      .setAttribute('aria-label', `View ${project.title} on GitHub`);
-    document.querySelector('#project-dialog .dialog-note').textContent =
-      project.note;
-    openGallery(project, button.dataset.project);
-    document.querySelector('#dialog-tags').replaceChildren(
-      ...project.tags.map((tag) => {
-        const span = document.createElement('span');
-        span.textContent = tag;
-        return span;
-      }),
-    );
-    openDialog(document.querySelector('#project-dialog'));
+    showProject(button.dataset.project);
   });
+});
+nextProjectButton.addEventListener('click', () => {
+  showProject(nextProjectButton.dataset.project);
+  projectDialog.querySelector('.dialog-close').focus({ preventScroll: true });
 });
 if (portfolio.email) {
   document.querySelector('#contact-message').textContent =

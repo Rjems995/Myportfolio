@@ -579,10 +579,6 @@ sup {
   font-style: normal;
   letter-spacing: 1px;
 }
-.tally-preview {
-  background: #ddeb9c;
-  color: #28351c;
-}
 .campus-preview {
   background: #292b40;
   color: #eeedff;
@@ -804,6 +800,50 @@ dialog::backdrop {
   border-top: 1px solid var(--line);
   padding-top: 20px;
   margin: 25px 0 0;
+}
+.project-navigation {
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+.project-navigation #project-position {
+  margin: 0 0 16px;
+  font-size: 12px;
+  color: #60625e;
+}
+.project-next {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+  min-height: 80px;
+  padding: 16px 0;
+  background: transparent;
+  text-align: left;
+}
+.project-next > span {
+  min-width: 0;
+}
+.project-next-label {
+  display: block;
+  margin-bottom: 8px;
+  color: #60625e;
+  font-size: 12px;
+}
+#project-next-title {
+  display: block;
+  overflow-wrap: anywhere;
+  font-size: clamp(22px, 4vw, 32px);
+  line-height: 1.2;
+  letter-spacing: -0.7px;
+}
+.project-next .arrow-icon {
+  width: 28px;
+  height: 28px;
+}
+.project-next:hover {
+  color: var(--blue);
 }
 [hidden] {
   display: none !important;

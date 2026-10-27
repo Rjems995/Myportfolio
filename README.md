@@ -12,7 +12,7 @@ A responsive personal portfolio built with HTML, CSS, and JavaScript. It present
 | **CampusMarketplace** | Student marketplace with listings, search, messaging, reviews, and moderation.                                           | [Rjems995/CampusMarketplace](https://github.com/Rjems995/CampusMarketplace) |
 | **SpaceSketch**       | Interior and outdoor space planning with connected 2D floor plans and a 3D editor.                                       | [Rjems995/SpaceSketch](https://github.com/Rjems995/SpaceSketch)             |
 
-Each project has a short preview, project context, technical details, tags, a repository link, and a gallery of three screenshots. On touch layouts, previews remain visible without hovering. Galleries support previous/next buttons, keyboard arrows, swipe navigation, thumbnails, and tap-to-enlarge images.
+Each project has a short preview, project context, technical details, tags, a repository link, and a gallery of three screenshots. On touch layouts, previews remain visible without hovering. Galleries support previous/next buttons, keyboard arrows, swipe navigation, thumbnails, and tap-to-enlarge images. A Next project control cycles through all selected projects in card order, returning to the first after the last and resetting each gallery to its first screenshot.
 
 ## Features
 
