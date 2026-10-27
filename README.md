@@ -1,39 +1,116 @@
-# Robin James Waje's portfolio
+﻿# Robin James Waje's Portfolio
+
+A responsive personal portfolio built with HTML, CSS, and JavaScript. It presents Robin's background, selected projects, GitHub contributions, and downloadable resume, with motion inspired by [Aadarsh Rai's portfolio](https://aadarshrai.vercel.app/).
+
+**Live website:** [rjems995.github.io/Myportfolio](https://rjems995.github.io/Myportfolio/)
+
+## Selected work
+
+| Project               | Focus                                                                                                                    | Repository                                                                  |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------- |
+| **EvacuRosa**         | Capstone research on multi-hazard evacuation decision support for Santa Rosa City. Robin's role focuses on UI/UX design. | [Alenlen1/EvacuRosa](https://github.com/Alenlen1/EvacuRosa)                 |
+| **CampusMarketplace** | Student marketplace with listings, search, messaging, reviews, and moderation.                                           | [Rjems995/CampusMarketplace](https://github.com/Rjems995/CampusMarketplace) |
+| **SpaceSketch**       | Interior and outdoor space planning with connected 2D floor plans and a 3D editor.                                       | [Rjems995/SpaceSketch](https://github.com/Rjems995/SpaceSketch)             |
+
+Each project has a short preview, project context, technical details, tags, a repository link, and a gallery of three screenshots. On touch layouts, previews remain visible without hovering. Galleries support previous/next buttons, keyboard arrows, swipe navigation, thumbnails, and tap-to-enlarge images.
+
+## Features
+
+- Responsive portrait hero, About section, education card, and resume download.
+- Project filters for all work, web apps, and design tools.
+- GitHub contribution calendar for `Rjems995`, scaled to fit mobile screens, with a profile link and a loading-error fallback.
+- Contact dialog that prepares a Gmail draft, with a default email app link and a copy-address action. Messages are reviewed and sent in the visitor's email client; the portfolio has no email-sending backend.
+- Local clock using the `Asia/Manila` timezone.
+- Skip-to-content link, visible keyboard focus, dialog labels, and reduced-motion support.
+
+The multilingual introduction cycles through 12 greetings, from "Hello" to "Kumusta." It plays once per browser session, includes a skip button, and is skipped when reduced motion is enabled. Other motion includes scroll reveals, the moving name, magnetic buttons, project previews, parallax, and drawer/dialog transitions. Continuous animation pauses when the page is hidden.
+
+## Preview locally
+
+Open `index.html` directly in a browser. No installation or build step is required to run the website.
+
+For a local HTTP preview, if Python is installed:
+
+```sh
+python -m http.server 8000
+```
+
+Then open [localhost:8000](http://localhost:8000/).
+
+The site has no frontend framework or runtime package dependencies. Google Fonts and the contribution calendar use external services; fonts fall back to system fonts, and a profile link appears if the calendar cannot load.
 
 ## Formatting
 
-Run `npm install` once to install Prettier, then use `npm run format` to format the project or `npm run format:check` to check formatting without changing files. Prettier is only a development tool; the website still runs without a build step.
+Install the locked development dependency:
 
-A responsive, dependency-free portfolio inspired by the layout and motion of https://aadarshrai.vercel.app/. All implementation and decorative visuals are original; no reference photos or personal details are reused.
+```sh
+npm ci
+```
 
-Open `index.html` in a browser to preview. No installation or build step is required. Deploy `index.html`, `styles.css`, `script.js`, `animations.css`, `animations.js`, `enhancements.js`, `favicon.svg`, and the `assets` folder to any static host.
+Format the project or check it without changing files:
 
-## Sharing metadata
+```sh
+npm run format
+npm run format:check
+```
 
-The page includes Open Graph and Twitter/X large-image card metadata. The 1200 × 630 PNG is `assets/social-preview.png`; its editable artwork is `assets/social-preview.html`.
+Prettier is a development tool only. In Windows PowerShell, use `npm.cmd` if the execution policy blocks `npm.ps1`.
 
-The public URL is `https://rjems995.github.io/Myportfolio/`. Canonical, Open Graph, and preview-image URLs are configured for this address. To change domains, run `npm run metadata:url -- https://YOUR-PUBLIC-ADDRESS/` followed by `npm run format`. Include `assets/social-preview.png` in the deployment. Commit and push metadata changes to update GitHub Pages; social services may cache earlier previews.
+## Files and customization
 
-## Content and assets
+| File or directory                                          | Purpose                                                                                                 |
+| ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `index.html`                                               | Page structure, project cards, About content, contact links, resume link, and sharing metadata.         |
+| `styles.css`                                               | Layout, typography, components, and responsive styles.                                                  |
+| `script.js`                                                | Project data and stories, gallery state, filters, contact drafts, navigation controls, and local clock. |
+| `animations.js` / `animations.css`                         | Welcome sequence, scroll effects, hover motion, and animated navigation/dialog behavior.                |
+| `enhancements.js`                                          | Touch gallery navigation, screenshot enlargement, and contribution-calendar fallback.                   |
+| `favicon.svg`                                              | Circular portrait used as the browser tab icon.                                                         |
+| `assets/projects/`                                         | WebP project screenshots.                                                                               |
+| `assets/robin-smiling-*.webp`                              | Transparent responsive portraits at 540, 800, and 1086 pixels wide.                                     |
+| `assets/robin-james-waje-resume.pdf`                       | Current downloadable resume.                                                                            |
+| `assets/social-preview.html` / `assets/social-preview.png` | Editable social-preview artwork and its 1200 x 630 exported image.                                      |
+| `scripts/set-site-url.cjs`                                 | Updates canonical and social-sharing URLs.                                                              |
 
-Project screenshots in `assets/projects/` were captured from local copies of the public repositories: Tally's built-in demo dashboard, Campus Marketplace's landing page with an empty temporary SQLite database, and EVACU-ROSA's public map without configured shelters. The map retains OpenStreetMap attribution. These are actual app captures, not mockups. Include these WebP assets when deploying.
+When changing selected work, keep the cards in `index.html` aligned with `portfolio.projects`, `projectStories`, `projectOutcomes`, and `extraScreenshots` in `script.js`. Update image paths, captions, alt text, repository URLs, and filter counts together.
 
-- Update your name, role, about text, and page metadata in `index.html`.
-- Selected work features Tally, Campus Marketplace, and EVACU-ROSA from your public GitHub repositories. Update the cards in `index.html` and descriptions, tags, and repository links in `script.js` as your projects evolve.
-- Your email is configured in `script.js`; your email, phone, and GitHub links are in `index.html`.
-- The hero serves transparent WebP portraits at 540, 800, and 1086 pixels wide through `srcset`. Its `sizes` attribute matches the CSS portrait width so the browser can choose an appropriate image for the viewport and screen density. Include the `assets` folder when deploying.
-- Change the timezone in `script.js` if needed.
+Replace `assets/robin-james-waje-resume.pdf` to update the resume download, then adjust the displayed file size in `index.html`. The older `assets/resume.html` layout does not automatically regenerate the current PDF.
 
-Includes category filtering, project detail dialogs, a mobile menu, a live local clock, keyboard focus styles, and reduced-motion support. Google Fonts is optional; the site uses a system fallback when offline.
+Contact details appear in both `index.html` and `script.js`; keep them consistent. Edit the `greetings` array in `animations.js` to change the introduction. The contribution chart URL and GitHub profile links are in `index.html`.
 
-Animation includes a curved multilingual welcome curtain, hero entrance, magnetic buttons with rising fills, staggered scroll and text reveals, a direction-aware name marquee, cursor-following project previews, globe rotation, parallax, a curved footer reveal, a sliding navigation drawer, animated project filtering, and dialog transitions. Motion adapts to touch devices and the system reduced-motion setting; continuous animation pauses when the page is hidden.
+## Screenshot sources
 
-The opening sequence cycles through greetings in 12 languages, starting with “Hello” and ending with “Kumusta,” before the curved reveal. It plays once per browser session and includes a skip button. Edit the `greetings` array in `animations.js` to change the words or timing.
+The current galleries were captured on **October 27, 2026**, from local copies of the linked repositories. They are actual application captures, not mockups.
 
-## Project stories and interactive preview
+| Project           | Screenshot files in `assets/projects/`                                              | Capture context                                                                                                                                      |
+| ----------------- | ----------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| EvacuRosa         | `evacu-current.webp`, `evacu-details.webp`, `evacu-options.webp`                    | Public map, evacuation-center panel, and hazard-information panel. The operational backend was not connected. OpenStreetMap attribution is retained. |
+| CampusMarketplace | `campus-current.webp`, `campus-current-browse.webp`, `campus-current-register.webp` | Updated homepage, browse page, and registration page with an empty local SQLite preview database.                                                    |
+| SpaceSketch       | `spacesketch.webp`, `spacesketch-templates.webp`, `spacesketch-login.webp`          | Rendered 3D homepage, starter templates, and sign-in page. Authenticated cloud editing was not used.                                                 |
 
-Edit `projectStories` in `script.js` for project context and technical details. The expense explorer in `enhancements.js` uses clearly labeled sample data and runs entirely in the browser. Galleries support swipe navigation and an enlarged-image dialog. The About section uses the supplied CV; replace `assets/robin-james-waje-resume.pdf` when updating the resume.
+The contribution calendar loads from `ghchart.rshah.org`. Its refresh timing depends on the external service and GitHub; it is not a real-time commit feed.
 
-## Selected work update (2026-10-27)
+## GitHub Pages and sharing
 
-Selected work now features EvacuRosa (Alenlen1/EvacuRosa, UI/UX capstone role), CampusMarketplace, and SpaceSketch. Each gallery contains three fresh screenshots from the current local repository builds. CampusMarketplace uses an empty local SQLite database. EvacuRosa is a frontend preview without the operational backend; SpaceSketch shows public browsing and sign-in views without authenticated cloud access. Tally and its illustrative expense demo are no longer featured.
+The portfolio uses relative asset paths for its GitHub Pages project URL:
+
+```text
+https://rjems995.github.io/Myportfolio/
+```
+
+Publish the HTML, CSS, JavaScript, favicon, and `assets` directory through the repository's configured GitHub Pages source. No build output is needed. Local edits become live after you commit, push, and the Pages deployment finishes.
+
+Open Graph and Twitter/X metadata use the public URL and `assets/social-preview.png`. To change the domain or deployment path:
+
+```sh
+npm run metadata:url -- https://YOUR-PUBLIC-ADDRESS/
+npm run format
+```
+
+Pass the full HTTPS site URL, including the repository path when applicable, without a query string or section anchor. The command updates `index.html`; it does not publish the site or regenerate the preview image. Social services may cache earlier previews.
+
+## Checks before publishing
+
+Run `npm run format:check`, then preview the page at phone and desktop sizes. Check project filters, all three images in each gallery, image enlargement, navigation, resume download, and contact draft contents. Verify keyboard access and the reduced-motion setting as well.
+
+Browser emulation helps catch layout issues; scrolling, rendering, and loading should also be checked on physical phones.
