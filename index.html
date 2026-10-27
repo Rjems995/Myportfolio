@@ -189,7 +189,7 @@
             </p>
 
             <a class="circle-button" href="#expertise"
-              >More about me
+              >View my skills
               <span aria-hidden="true"
                 ><svg
                   class="arrow-icon"
@@ -206,26 +206,53 @@
             ></a>
           </div>
         </div>
-        <div class="expertise" id="expertise">
+        <div
+          class="expertise skills-layout"
+          id="expertise"
+          role="region"
+          aria-labelledby="skills-title"
+        >
           <div class="expertise-title">
-            <span class="eyebrow">HOW I APPROACH MY WORK</span>
-            <h3>From the first idea<br />to the final detail.</h3>
+            <span class="eyebrow">MY SKILLS &amp; TOOLS</span>
+            <h3 id="skills-title">
+              From design ideas<br />to working applications.
+            </h3>
           </div>
-          <div class="service">
-            <span class="eyebrow">01 / DESIGN</span>
-            <h4>Clear by design.</h4>
-            <p>
-              Simple layouts, considered typography, and intuitive interfaces
-              that put people first.
-            </p>
-          </div>
-          <div class="service">
-            <span class="eyebrow">02 / DEVELOPMENT</span>
-            <h4>Built with purpose.</h4>
-            <p>
-              Responsive, accessible websites with thoughtful interactions
-              across every screen size.
-            </p>
+          <div class="skills-grid">
+            <section class="skill-group" aria-labelledby="skills-programming">
+              <h4 id="skills-programming">Programming languages</h4>
+              <ul class="skill-list">
+                <li>Python</li>
+                <li>C++</li>
+                <li>TypeScript</li>
+              </ul>
+            </section>
+            <section class="skill-group" aria-labelledby="skills-design">
+              <h4 id="skills-design">UI/UX &amp; design</h4>
+              <ul class="skill-list">
+                <li>Canva</li>
+                <li>CSS</li>
+              </ul>
+            </section>
+            <section class="skill-group" aria-labelledby="skills-data">
+              <h4 id="skills-data">Databases &amp; cloud</h4>
+              <ul class="skill-list">
+                <li>SQL</li>
+                <li>Supabase</li>
+              </ul>
+            </section>
+            <section class="skill-group" aria-labelledby="skills-tools">
+              <h4 id="skills-tools">Development tools</h4>
+              <ul class="skill-list">
+                <li>Git</li>
+              </ul>
+            </section>
+            <section class="skill-group" aria-labelledby="skills-networking">
+              <h4 id="skills-networking">Networking</h4>
+              <ul class="skill-list">
+                <li>Cisco</li>
+              </ul>
+            </section>
           </div>
         </div>
       </section>
