@@ -1,22 +1,12 @@
-// Selected public repositories from github.com/Rjems995.
+// Selected public repositories and current project previews.
 const portfolio = {
   email: 'robinwaje09@gmail.com',
   projects: {
-    tally: {
-      title: 'Tally',
-      screenshot: 'assets/projects/tally.webp',
-      screenshotCaption: 'Dashboard screenshot — built-in demo data.',
-      description:
-        'A receipt scanner and expense tracker that turns photos into searchable spending records. Browser-local OCR, editable receipt review, analytics, and exports connect to a Python and SQLite backend. Capacitor projects extend the app to mobile, with an Android preview and an iOS build workflow.',
-      tags: ['JavaScript', 'Python', 'SQLite', 'Tesseract OCR', 'Capacitor'],
-      url: 'https://github.com/Rjems995/Tally',
-      note: 'The Android preview uses temporary demo data. Mobile store releases are not published.',
-    },
     campus: {
-      title: 'Campus Marketplace',
-      screenshot: 'assets/projects/campus.webp',
+      title: 'CampusMarketplace',
+      screenshot: 'assets/projects/campus-current.webp',
       screenshotCaption:
-        'Landing page screenshot — local preview with an empty database.',
+        'Updated landing page captured locally with an empty preview database.',
       description:
         'A full-stack marketplace for university communities to buy, sell, and trade items. Includes searchable listings, image galleries, real-time chat, favorites, seller reviews, and an administration workflow for moderation.',
       tags: ['Flask', 'PostgreSQL', 'SQLAlchemy', 'Socket.IO', 'Bootstrap'],
@@ -24,48 +14,51 @@ const portfolio = {
       note: 'Explore the source and local setup instructions on GitHub.',
     },
     evacu: {
-      title: 'EVACU-ROSA',
-      screenshot: 'assets/projects/evacu.webp',
+      title: 'EvacuRosa',
+      screenshot: 'assets/projects/evacu-current.webp',
       screenshotCaption:
-        'Public map screenshot — awaiting shelter setup. Map data © OpenStreetMap contributors.',
+        'Current EvacuRosa public interface, captured locally. Map data ? OpenStreetMap contributors.',
       description:
-        'A map-first evacuation application for Santa Rosa City, Laguna. Combines street-hazard reporting, transport-aware shelter routing, GPS guidance, and downloadable offline directions. Built with A* routing, fuzzy inference, and a geospatial database.',
-      tags: ['Next.js', 'TypeScript', 'Leaflet', 'Supabase', 'PostGIS'],
-      url: 'https://github.com/Rjems995/EVACU-ROSA-v1',
-      note: 'A development project requiring verified shelters, operational data, and field validation before real-world use.',
+        'My capstone research project: a multi-hazard evacuation decision-support system for Santa Rosa City. My role focuses on UI/UX design, making hazard, route, and evacuation-center information easier to navigate. The system combines fuzzy-logic risk assessment with A* routing and supports offline route calculations.',
+      tags: [
+        'UI/UX Design',
+        'Capstone Research',
+        'Next.js',
+        'TypeScript',
+        'Leaflet',
+        'Supabase',
+      ],
+      url: 'https://github.com/Alenlen1/EvacuRosa',
+      note: 'Local frontend preview. Route recommendations depend on current hazard and shelter data and do not replace official emergency guidance.',
+    },
+    spacesketch: {
+      title: 'SpaceSketch',
+      screenshot: 'assets/projects/spacesketch.webp',
+      screenshotCaption:
+        'SpaceSketch homepage captured from the current local build.',
+      description:
+        'An interior and outdoor space planner with connected 2D floor plans and a 3D editor. Users can draw rooms, resize walls, arrange furniture, edit doors and windows, and explore starter layouts. Supabase supports account access, cloud projects, version history, and shared viewing.',
+      tags: ['Next.js', 'TypeScript', 'React', '3D Design', 'Supabase'],
+      url: 'https://github.com/Rjems995/SpaceSketch',
+      note: 'Public browsing preview. Creating and editing projects requires a configured Supabase account.',
     },
   },
 };
-
 const projectOutcomes = {
-  tally: [
-    'Receipt workflow',
-    'Scan, review, and search receipts, then explore spending and export records.',
-  ],
   campus: [
     'Student marketplace',
     'Browse listings, contact sellers in real time, and review transactions.',
   ],
   evacu: [
-    'Evacuation planning',
-    'Explore hazards and transport-aware routes with offline guidance support.',
+    'Evacuation decision support',
+    'Present hazard, route, and shelter information through an approachable map interface.',
+  ],
+  spacesketch: [
+    'From plan to space',
+    'Explore starter layouts and plan indoor or outdoor spaces in connected 2D and 3D views.',
   ],
 };
 const projectStories = {
-  tally: [
-    [
-      'The problem',
-      'Receipt photos are difficult to search and turn into a useful view of spending.',
-    ],
-    [
-      'The approach',
-      'Connect browser-local OCR to an editable review step, then organize the records for analytics and export.',
-    ],
-    [
-      'Technical detail',
-      'Tesseract handles text extraction in the browser; Python and SQLite support the expense workflow. Capacitor extends the interface to mobile.',
-    ],
-  ],
   campus: [
     [
       'The problem',
@@ -82,41 +75,63 @@ const projectStories = {
   ],
   evacu: [
     [
+      'Capstone research',
+      'A multi-hazard evacuation decision-support application for Santa Rosa City, covering flood, fire, and earthquake scenarios.',
+    ],
+    [
+      'My role: UI/UX',
+      'Design the user-facing experience and presentation of route, hazard, and shelter information.',
+    ],
+    [
+      'Technical approach',
+      'The system combines fuzzy-logic risk assessment with A* pathfinding and supports downloaded data for offline routing.',
+    ],
+  ],
+  spacesketch: [
+    [
       'The problem',
-      'Evacuation planning needs to account for hazards, shelter information, and different transport options.',
+      'Spatial ideas can be difficult to communicate using a floor plan alone.',
     ],
     [
       'The approach',
-      'Combine a map interface with hazard reporting, transport-aware routing, and downloadable guidance.',
+      'Connect editable 2D plans with 3D space planning, furniture placement, and materials.',
     ],
     [
-      'Technical detail',
-      'Leaflet presents the map, PostGIS supports geographic data, and A* routing and fuzzy inference support route planning. Field validation remains necessary.',
+      'Project workflow',
+      'Starter templates help users begin a design; signed-in accounts support saved projects and cloud history.',
     ],
   ],
 };
-
-const menuButton = document.querySelector('.menu-toggle');
 const extraScreenshots = {
-  tally: [
-    ['tally-receipts', 'Receipt history — built-in demo data.'],
-    ['tally-analytics', 'Spending analytics — built-in demo data.'],
-  ],
   campus: [
-    ['campus-browse', 'Browse and search filters — empty local database.'],
-    ['campus-register', 'Student registration page — local preview.'],
+    [
+      'campus-current-browse',
+      'Current browse page with an empty local preview database.',
+    ],
+    [
+      'campus-current-register',
+      'Current student registration interface, local preview.',
+    ],
   ],
   evacu: [
     [
-      'evacu-guide',
-      'How-it-works guide — local preview. Map data © OpenStreetMap contributors.',
+      'evacu-details',
+      'Evacuation-center panel, local frontend preview without operational data.',
     ],
     [
-      'evacu-admin',
-      'Operations entry page — local preview without a connected backend.',
+      'evacu-options',
+      'Hazard-information panel, local frontend preview without operational data.',
+    ],
+  ],
+  spacesketch: [
+    ['spacesketch-templates', 'Public starter layout previews.'],
+    [
+      'spacesketch-login',
+      'Account access interface for saved projects and editing.',
     ],
   ],
 };
+const menuButton = document.querySelector('.menu-toggle');
 let galleryProject = null;
 let galleryIndex = 0;
 let galleryImages = [];
@@ -258,8 +273,6 @@ document.querySelectorAll('.project').forEach((button) => {
     const detail = document.createElement('p');
     detail.textContent = outcome;
     document.querySelector('#dialog-outcomes').replaceChildren(heading, detail);
-    document.querySelector('#playground').hidden =
-      button.dataset.project !== 'tally';
     document.querySelector('#dialog-repository').href = project.url;
     document
       .querySelector('#dialog-repository')

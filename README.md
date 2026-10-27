@@ -33,3 +33,7 @@ The opening sequence cycles through greetings in 12 languages, starting with “
 ## Project stories and interactive preview
 
 Edit `projectStories` in `script.js` for project context and technical details. The expense explorer in `enhancements.js` uses clearly labeled sample data and runs entirely in the browser. Galleries support swipe navigation and an enlarged-image dialog. The About section uses the supplied CV; replace `assets/robin-james-waje-resume.pdf` when updating the resume.
+
+## Selected work update (2026-10-27)
+
+Selected work now features EvacuRosa (Alenlen1/EvacuRosa, UI/UX capstone role), CampusMarketplace, and SpaceSketch. Each gallery contains three fresh screenshots from the current local repository builds. CampusMarketplace uses an empty local SQLite database. EvacuRosa is a frontend preview without the operational backend; SpaceSketch shows public browsing and sign-in views without authenticated cloud access. Tally and its illustrative expense demo are no longer featured.

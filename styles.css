@@ -1820,7 +1820,7 @@ button:focus-visible {
 .case-study p {
   margin: 0;
 }
-.project[data-project='tally'] {
+.project[data-project='spacesketch'] {
   --project-accent: #62774a;
 }
 .project[data-project='campus'] {

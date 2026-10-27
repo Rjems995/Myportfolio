@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Explore Robin James Waje's web and mobile projects, including Tally, Campus Marketplace, and EVACU-ROSA. Thoughtful design and purposeful development."
+      content="Explore Robin James Waje's web and mobile projects, including EvacuRosa, CampusMarketplace, and SpaceSketch. Thoughtful design and purposeful development."
     />
     <meta name="theme-color" content="#999d9e" />
     <title>Robin James Waje — Designer &amp; Developer</title>
@@ -19,7 +19,7 @@
     />
     <meta
       property="og:description"
-      content="Explore Tally, Campus Marketplace, and EVACU-ROSA — web and mobile projects by Robin James Waje."
+      content="Explore EvacuRosa, CampusMarketplace, and SpaceSketch — web and mobile projects by Robin James Waje."
     />
     <!-- To change the public address, run npm run metadata:url -- https://your-domain/ -->
     <meta
@@ -40,7 +40,7 @@
     />
     <meta
       name="twitter:description"
-      content="Explore Tally, Campus Marketplace, and EVACU-ROSA — web and mobile projects by Robin James Waje."
+      content="Explore EvacuRosa, CampusMarketplace, and SpaceSketch — web and mobile projects by Robin James Waje."
     />
     <meta
       name="twitter:image"
@@ -242,23 +242,23 @@
             All work <sup>03</sup></button
           ><button class="filter" data-filter="web" aria-pressed="false">
             Web apps <sup>03</sup></button
-          ><button class="filter" data-filter="mobile" aria-pressed="false">
-            Mobile <sup>01</sup>
+          ><button class="filter" data-filter="design" aria-pressed="false">
+            Design tools <sup>01</sup>
           </button>
         </div>
         <div class="project-list">
           <button
             class="project"
-            data-project="tally"
-            data-category="web mobile"
-            aria-label="View Tally project details"
+            data-project="evacu"
+            data-category="web research"
+            aria-label="View EvacuRosa project details"
           >
             <span class="project-number">01</span
             ><span class="project-title"
-              >Tally<small
-                >From receipt photos to spending insights.</small
+              >EvacuRosa<small
+                >Mapping routes. Connecting communities.</small
               ></span
-            ><span class="project-service">Web & Mobile Development</span
+            ><span class="project-service">Geospatial Web Development</span
             ><span class="project-arrow" aria-hidden="true"
               ><svg
                 class="arrow-icon"
@@ -274,18 +274,18 @@
                 <path d="M5 19 19 5M5 5h14v14" /></svg
             ></span>
             <span
-              class="project-hover tally-preview screenshot-preview"
+              class="project-hover evacu-preview screenshot-preview"
               aria-hidden="true"
               ><img
-                src="assets/projects/tally.webp"
-                alt="Tally expense dashboard with sample data"
+                src="assets/projects/evacu-current.webp"
+                alt="EvacuRosa public evacuation map"
                 width="1440"
                 height="960"
                 loading="lazy"
                 decoding="async" /><span class="preview-copy"
                 ><span class="preview-summary"
-                  >Scan receipts, organize expenses, and explore your spending
-                  with clear analytics.</span
+                  >A Santa Rosa evacuation project with hazard reporting,
+                  shelter routing, and offline directions.</span
                 ><span class="preview-cta"
                   >Explore project
                   <svg
@@ -306,11 +306,11 @@
             class="project"
             data-project="campus"
             data-category="web"
-            aria-label="View Campus Marketplace project details"
+            aria-label="View CampusMarketplace project details"
           >
             <span class="project-number">02</span
             ><span class="project-title"
-              >Campus Marketplace<small
+              >CampusMarketplace<small
                 >Buy, sell, and connect on campus.</small
               ></span
             ><span class="project-service">Full-stack Development</span
@@ -332,8 +332,8 @@
               class="project-hover campus-preview screenshot-preview"
               aria-hidden="true"
               ><img
-                src="assets/projects/campus.webp"
-                alt="Campus Marketplace landing page"
+                src="assets/projects/campus-current.webp"
+                alt="CampusMarketplace landing page"
                 width="1440"
                 height="960"
                 loading="lazy"
@@ -359,16 +359,16 @@
           </button>
           <button
             class="project"
-            data-project="evacu"
-            data-category="web"
-            aria-label="View EVACU-ROSA project details"
+            data-project="spacesketch"
+            data-category="web design"
+            aria-label="View SpaceSketch project details"
           >
             <span class="project-number">03</span
             ><span class="project-title"
-              >EVACU-ROSA<small
-                >Mapping routes. Connecting communities.</small
+              >SpaceSketch<small
+                >From floor plans to furnished spaces.</small
               ></span
-            ><span class="project-service">Geospatial Web Development</span
+            ><span class="project-service">2D & 3D Space Planning</span
             ><span class="project-arrow" aria-hidden="true"
               ><svg
                 class="arrow-icon"
@@ -384,18 +384,18 @@
                 <path d="M5 19 19 5M5 5h14v14" /></svg
             ></span>
             <span
-              class="project-hover evacu-preview screenshot-preview"
+              class="project-hover spacesketch-preview screenshot-preview"
               aria-hidden="true"
               ><img
-                src="assets/projects/evacu.webp"
-                alt="EVACU-ROSA public evacuation map"
+                src="assets/projects/spacesketch.webp"
+                alt="SpaceSketch space planning homepage"
                 width="1440"
-                height="1372"
+                height="960"
                 loading="lazy"
                 decoding="async" /><span class="preview-copy"
                 ><span class="preview-summary"
-                  >A Santa Rosa evacuation project with hazard reporting,
-                  shelter routing, and offline directions.</span
+                  >Plan rooms, arrange furniture, and explore interior and
+                  outdoor layouts in 2D and 3D.</span
                 ><span class="preview-cta"
                   >Explore project
                   <svg
@@ -642,50 +642,7 @@
         <div id="dialog-story" class="case-study"></div>
         <div id="dialog-outcomes" class="project-outcomes"></div>
         <div id="dialog-tags" class="tags"></div>
-        <section
-          class="playground"
-          hidden
-          id="playground"
-          aria-labelledby="playground-title"
-        >
-          <div class="work-heading">
-            <div>
-              <span class="eyebrow">TALLY / INTERACTIVE PREVIEW</span>
-              <h2 id="playground-title">Try the workflow.</h2>
-            </div>
-          </div>
-          <p class="playground-intro">
-            A small expense explorer inspired by Tally. Filter the sample
-            records and see the totals respond.
-          </p>
-          <div class="demo-panel">
-            <div class="demo-toolbar">
-              <label
-                >Search sample expenses<input
-                  id="demo-search"
-                  type="search"
-                  placeholder="Try coffee or groceries" /></label
-              ><label
-                >Category<select id="demo-category">
-                  <option value="all">All categories</option>
-                  <option>Food</option>
-                  <option>Transport</option>
-                  <option>Supplies</option>
-                </select></label
-              ><button id="demo-reset" class="pill-link" type="button">
-                Reset
-              </button>
-            </div>
-            <div class="demo-summary" role="status" aria-live="polite">
-              <span id="demo-count"></span><strong id="demo-total"></strong>
-            </div>
-            <ul id="demo-records" class="demo-records"></ul>
-            <p class="demo-disclaimer">
-              Illustrative sample data. This interactive preview runs in your
-              browser; it does not scan receipts or connect to your accounts.
-            </p>
-          </div>
-        </section>
+
         <a
           id="dialog-repository"
           class="pill-link repository-link"
