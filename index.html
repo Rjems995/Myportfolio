@@ -487,8 +487,8 @@
             class="contributions-scroll"
             role="region"
             aria-label="GitHub contribution calendar"
-            tabindex="0"
           >
+            <div id="contributions-calendar" hidden></div>
             <a
               href="https://github.com/Rjems995?tab=overview"
               target="_blank"
@@ -503,6 +503,10 @@
                 decoding="async"
             /></a>
           </div>
+          <p id="contribution-details" class="contribution-details" hidden></p>
+          <p id="contributions-hint" class="contributions-hint" hidden>
+            Hover or tap a day for details. Use arrow keys to explore.
+          </p>
           <p id="contributions-fallback" hidden>
             The contribution calendar couldn&rsquo;t load.
             <a href="https://github.com/Rjems995"

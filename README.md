@@ -18,7 +18,7 @@ Each project has a short preview, project context, technical details, tags, a re
 
 - Responsive portrait hero, About section, education card, and resume download.
 - Project filters for all work, web apps, and design tools.
-- GitHub contribution calendar for `Rjems995`, scaled to fit mobile screens, with a profile link and a loading-error fallback.
+- Interactive GitHub contribution calendar for `Rjems995`, scaled to fit mobile screens. Hover, tap, or focus a day to see its date and contribution count; arrow keys move between days and weeks. A profile link and static-image fallback remain available.
 - Contact dialog that prepares a Gmail draft, with a default email app link and a copy-address action. Messages are reviewed and sent in the visitor's email client; the portfolio has no email-sending backend.
 - Local clock using the `Asia/Manila` timezone.
 - Skip-to-content link, visible keyboard focus, dialog labels, and reduced-motion support.
@@ -58,19 +58,19 @@ Prettier is a development tool only. In Windows PowerShell, use `npm.cmd` if the
 
 ## Files and customization
 
-| File or directory                                          | Purpose                                                                                                 |
-| ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `index.html`                                               | Page structure, project cards, About content, contact links, resume link, and sharing metadata.         |
-| `styles.css`                                               | Layout, typography, components, and responsive styles.                                                  |
-| `script.js`                                                | Project data and stories, gallery state, filters, contact drafts, navigation controls, and local clock. |
-| `animations.js` / `animations.css`                         | Welcome sequence, scroll effects, hover motion, and animated navigation/dialog behavior.                |
-| `enhancements.js`                                          | Touch gallery navigation, screenshot enlargement, and contribution-calendar fallback.                   |
-| `favicon.svg`                                              | Circular portrait used as the browser tab icon.                                                         |
-| `assets/projects/`                                         | WebP project screenshots.                                                                               |
-| `assets/robin-smiling-*.webp`                              | Transparent responsive portraits at 540, 800, and 1086 pixels wide.                                     |
-| `assets/robin-james-waje-resume.pdf`                       | Current downloadable resume.                                                                            |
-| `assets/social-preview.html` / `assets/social-preview.png` | Editable social-preview artwork and its 1200 x 630 exported image.                                      |
-| `scripts/set-site-url.cjs`                                 | Updates canonical and social-sharing URLs.                                                              |
+| File or directory                                          | Purpose                                                                                                       |
+| ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `index.html`                                               | Page structure, project cards, About content, contact links, resume link, and sharing metadata.               |
+| `styles.css`                                               | Layout, typography, components, and responsive styles.                                                        |
+| `script.js`                                                | Project data and stories, gallery state, filters, contact drafts, navigation controls, and local clock.       |
+| `animations.js` / `animations.css`                         | Welcome sequence, scroll effects, hover motion, and animated navigation/dialog behavior.                      |
+| `enhancements.js`                                          | Touch gallery navigation, screenshot enlargement, and interactive contribution-calendar loading and fallback. |
+| `favicon.svg`                                              | Circular portrait used as the browser tab icon.                                                               |
+| `assets/projects/`                                         | WebP project screenshots.                                                                                     |
+| `assets/robin-smiling-*.webp`                              | Transparent responsive portraits at 540, 800, and 1086 pixels wide.                                           |
+| `assets/robin-james-waje-resume.pdf`                       | Current downloadable resume.                                                                                  |
+| `assets/social-preview.html` / `assets/social-preview.png` | Editable social-preview artwork and its 1200 x 630 exported image.                                            |
+| `scripts/set-site-url.cjs`                                 | Updates canonical and social-sharing URLs.                                                                    |
 
 When changing selected work, keep the cards in `index.html` aligned with `portfolio.projects`, `projectStories`, `projectOutcomes`, and `extraScreenshots` in `script.js`. Update image paths, captions, alt text, repository URLs, and filter counts together.
 
@@ -88,7 +88,7 @@ The current galleries were captured on **October 27, 2026**, from local copies o
 | CampusMarketplace | `campus-current.webp`, `campus-current-browse.webp`, `campus-current-register.webp` | Updated homepage, browse page, and registration page with an empty local SQLite preview database.                                                    |
 | SpaceSketch       | `spacesketch.webp`, `spacesketch-templates.webp`, `spacesketch-login.webp`          | Rendered 3D homepage, starter templates, and sign-in page. Authenticated cloud editing was not used.                                                 |
 
-The contribution calendar loads from `ghchart.rshah.org`. Its refresh timing depends on the external service and GitHub; it is not a real-time commit feed.
+The interactive calendar fetches daily contribution counts from the [GitHub Contributions API](https://github.com/grubersjoe/github-contributions-api) when the section approaches the viewport. It uses `ghchart.rshah.org` as a static-image fallback if daily data cannot load. Counts are GitHub contributions, which can include more than commits. Refresh timing depends on the external services and GitHub; it is not a real-time commit feed.
 
 ## GitHub Pages and sharing
 
