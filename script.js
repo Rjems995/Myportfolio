@@ -122,6 +122,21 @@ const extraScreenshots = {
       'evacu-options',
       'Hazard-information panel, local frontend preview without operational data.',
     ],
+    [
+      'evacu-mobile-map',
+      'Mobile map and route planner. Local frontend preview; map data © OpenStreetMap contributors.',
+      'portrait',
+    ],
+    [
+      'evacu-mobile-centers',
+      'Mobile evacuation-center directory. Local preview without operational shelter data.',
+      'portrait',
+    ],
+    [
+      'evacu-mobile-hazards',
+      'Mobile hazard-information view. Local preview without operational hazard reports.',
+      'portrait',
+    ],
   ],
   spacesketch: [
     ['spacesketch-templates', 'Public starter layout previews.'],
@@ -144,6 +159,7 @@ function showScreenshot(index) {
   image.decoding = 'async';
   const art = document.querySelector('#dialog-art');
   art.className = 'dialog-art screenshot-art';
+  art.classList.toggle('is-portrait', item.orientation === 'portrait');
   art.replaceChildren(image);
   document.querySelector('#screenshot-caption').textContent = item.caption;
   document.querySelector('#gallery-counter').textContent =
@@ -158,9 +174,10 @@ function openGallery(project, id) {
   galleryProject = project;
   galleryImages = [
     { src: project.screenshot, caption: project.screenshotCaption },
-    ...extraScreenshots[id].map(([file, caption]) => ({
+    ...extraScreenshots[id].map(([file, caption, orientation]) => ({
       src: `assets/projects/${file}.webp`,
       caption,
+      orientation,
     })),
   ];
   document.querySelector('#gallery-thumbnails').replaceChildren(
@@ -173,6 +190,12 @@ function openGallery(project, id) {
       thumbnail.alt = '';
       thumbnail.loading = 'lazy';
       button.append(thumbnail);
+      if (item.orientation === 'portrait') {
+        const label = document.createElement('span');
+        label.className = 'gallery-device-label';
+        label.textContent = 'Mobile';
+        button.append(label);
+      }
       button.addEventListener('click', () => showScreenshot(i));
       return button;
     }),

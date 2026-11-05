@@ -1269,6 +1269,13 @@ dialog::backdrop {
   height: 75px;
   object-fit: contain;
 }
+.gallery-device-label {
+  display: block;
+  margin: 4px 0 2px;
+  color: var(--ink);
+  font-size: 10px;
+  line-height: 1.4;
+}
 .repository-link {
   margin-top: 24px;
 }
@@ -1655,6 +1662,11 @@ button:focus-visible {
   max-height: 60svh;
   padding: clamp(12px, 3vw, 32px);
   background: #eceeeb;
+}
+.dialog-art.screenshot-art.is-portrait {
+  height: min(70svh, 680px);
+  max-height: 70svh;
+  aspect-ratio: auto;
 }
 .screenshot-art img {
   width: 100%;

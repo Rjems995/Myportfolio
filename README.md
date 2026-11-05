@@ -12,7 +12,7 @@ A responsive personal portfolio built with HTML, CSS, and JavaScript. It present
 | **CampusMarketplace** | Student marketplace with listings, search, messaging, reviews, and moderation.                                           | [Rjems995/CampusMarketplace](https://github.com/Rjems995/CampusMarketplace) |
 | **SpaceSketch**       | Interior and outdoor space planning with connected 2D floor plans and a 3D editor.                                       | [Rjems995/SpaceSketch](https://github.com/Rjems995/SpaceSketch)             |
 
-Each project has a short preview, project context, technical details, tags, a repository link, and a gallery of three screenshots. On touch layouts, previews remain visible without hovering. Galleries support previous/next buttons, keyboard arrows, swipe navigation, thumbnails, and tap-to-enlarge images. A Next project control cycles through all selected projects in card order, returning to the first after the last and resetting each gallery to its first screenshot.
+Each project has a short preview, project context, technical details, tags, a repository link, and a screenshot gallery. EvacuRosa includes three desktop and three mobile captures; CampusMarketplace and SpaceSketch have three screenshots each. On touch layouts, previews remain visible without hovering. Galleries support previous/next buttons, keyboard arrows, swipe navigation, thumbnails, and tap-to-enlarge images. Mobile captures have labeled thumbnails and a taller portrait viewing frame. A Next project control cycles through all selected projects in card order, returning to the first after the last and resetting each gallery to its first screenshot.
 
 ## Features
 
@@ -80,13 +80,15 @@ Contact details appear in both `index.html` and `script.js`; keep them consisten
 
 ## Screenshot sources
 
-The current galleries were captured on **October 27, 2026**, from local copies of the linked repositories. They are actual application captures, not mockups.
+The desktop galleries were captured on **October 27, 2026**, from local copies of the linked repositories. They are actual application captures, not mockups.
 
 | Project           | Screenshot files in `assets/projects/`                                              | Capture context                                                                                                                                      |
 | ----------------- | ----------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
 | EvacuRosa         | `evacu-current.webp`, `evacu-details.webp`, `evacu-options.webp`                    | Public map, evacuation-center panel, and hazard-information panel. The operational backend was not connected. OpenStreetMap attribution is retained. |
 | CampusMarketplace | `campus-current.webp`, `campus-current-browse.webp`, `campus-current-register.webp` | Updated homepage, browse page, and registration page with an empty local SQLite preview database.                                                    |
 | SpaceSketch       | `spacesketch.webp`, `spacesketch-templates.webp`, `spacesketch-login.webp`          | Rendered 3D homepage, starter templates, and sign-in page. Authenticated cloud editing was not used.                                                 |
+
+EvacuRosa's mobile captures were added on **November 5, 2026**, from the updated `Alenlen1/EvacuRosa` frontend at a 390 × 844 viewport and 2× pixel density. The files are `evacu-mobile-map.webp`, `evacu-mobile-centers.webp`, and `evacu-mobile-hazards.webp`. They show the actual map, evacuation-center directory, and hazard-information interface with the backend disconnected; empty states and offline status are retained.
 
 The interactive calendar fetches daily contribution counts from the [GitHub Contributions API](https://github.com/grubersjoe/github-contributions-api) when the section approaches the viewport. It uses `ghchart.rshah.org` as a static-image fallback if daily data cannot load. Counts are GitHub contributions, which can include more than commits. Refresh timing depends on the external services and GitHub; it is not a real-time commit feed.
 
@@ -111,6 +113,6 @@ Pass the full HTTPS site URL, including the repository path when applicable, wit
 
 ## Checks before publishing
 
-Run `npm run format:check`, then preview the page at phone and desktop sizes. Check project filters, all three images in each gallery, image enlargement, navigation, resume download, and contact draft contents. Verify keyboard access and the reduced-motion setting as well.
+Run `npm run format:check`, then preview the page at phone and desktop sizes. Check project filters, every image in each gallery, image enlargement, navigation, resume download, and contact draft contents. Verify keyboard access and the reduced-motion setting as well.
 
 Browser emulation helps catch layout issues; scrolling, rendering, and loading should also be checked on physical phones.
