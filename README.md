@@ -18,6 +18,7 @@ Each project has a short preview, project context, technical details, tags, a re
 
 - Responsive portrait hero, About section, education card, and options to view the resume PDF in a new tab or download it.
 - Project filters for all work, web apps, and design tools.
+- Scroll-triggered sketch-to-screen reveals trace project-specific decorative wireframes before wiping into the real screenshots. Desktop rows include a thumbnail; mobile cards use their existing preview. Each reveal plays once, waits for its image, and skips motion for reduced-motion preferences or keyboard focus.
 - Project-specific interactive previews inside the details dialog: a play/pause route illustration for EvacuRosa, selectable sample listings for CampusMarketplace, and a manually rotated CSS 3D room for SpaceSketch. These illustrate project ideas using clearly labeled sample content.
 - Interactive GitHub contribution calendar for `Rjems995`, scaled to fit mobile screens. Hover, tap, or focus a day to see its date and contribution count; arrow keys move between days and weeks. A profile link and static-image fallback remain available.
 - Contact dialog with a Gmail/default email app choice before opening a draft. Both options include the form details, with direct email links and a copy-address action also available. Messages are reviewed and sent in the visitor's email client; the portfolio has no email-sending backend.
@@ -77,6 +78,8 @@ Prettier is a development tool only. In Windows PowerShell, use `npm.cmd` if the
 When changing selected work, keep the cards in `index.html` aligned with `portfolio.projects`, `projectStories`, `projectOutcomes`, and `extraScreenshots` in `script.js`. Update image paths, captions, alt text, repository URLs, and filter counts together.
 
 Interactive preview content and shared styling live in `project-interactions.js` and `project-interactions.css`. The room model and rotation controls live in `project-room.js` and `project-room.css`. Keep these files in the deployment with the existing scripts and styles. Previews reset when switching projects, and route playback stops when the dialog closes. Reduced motion shows the completed route without animation; the room rotates only through visitor input.
+
+The scroll-driven wireframe reveals live in `sketch-reveals.js` and `sketch-reveals.css`. Their SVG outlines are decorative interpretations, not original wireframe documents. The effect uses existing screenshot assets and the browser's animation API, with no additional dependencies. Keep both files in the deployment.
 
 Replace `assets/robin-james-waje-resume.pdf` to update the resume download, then adjust the displayed file size in `index.html`. The older `assets/resume.html` layout does not automatically regenerate the current PDF.
 
