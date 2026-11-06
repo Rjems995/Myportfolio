@@ -1868,9 +1868,6 @@ button:focus-visible {
   width: 100%;
   height: auto;
 }
-.resume-link {
-  margin: 4px 0 20px;
-}
 .resume-link span {
   font-size: 11px;
   color: #60625e;
@@ -1894,12 +1891,23 @@ button:focus-visible {
   padding-top: 24px;
   max-width: 450px;
 }
-.resume-card .resume-link {
+.resume-actions {
   display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
   margin: 18px 0;
-  width: fit-content;
+}
+.resume-card .resume-link {
+  margin: 0;
+  padding: 14px 20px;
+  gap: 12px;
   max-width: 100%;
   flex-wrap: wrap;
+}
+@media (max-width: 480px) {
+  .resume-actions .resume-link {
+    width: 100%;
+  }
 }
 .resume-card .education-note {
   color: #60625e;
