@@ -1,3 +1,109 @@
+// Draggable footer note, bounded to its own space above the footer links.
+(() => {
+  const note = document.querySelector('#footer-note');
+  const stage = document.querySelector('.footer-note-stage');
+  const status = document.querySelector('#footer-note-status');
+  let position = { x: 0, y: 0 };
+  let drag = null;
+
+  function bounds() {
+    const inset = 22;
+    return {
+      minX: inset,
+      minY: inset,
+      maxX: Math.max(inset, stage.clientWidth - note.offsetWidth - inset),
+      maxY: Math.max(inset, stage.clientHeight - note.offsetHeight - inset),
+    };
+  }
+  function move(x, y) {
+    const box = bounds();
+    position = {
+      x: Math.max(box.minX, Math.min(x, box.maxX)),
+      y: Math.max(box.minY, Math.min(y, box.maxY)),
+    };
+    note.style.setProperty('--note-x', `${position.x}px`);
+    note.style.setProperty('--note-y', `${position.y}px`);
+  }
+  function reset() {
+    const box = bounds();
+    move(box.maxX, box.minY + (box.maxY - box.minY) / 2);
+  }
+  function finish(cancelled = false) {
+    if (!drag) return;
+    const previous = drag;
+    drag = null;
+    if (cancelled) move(previous.x, previous.y);
+    note.classList.remove('is-dragging');
+    if (note.hasPointerCapture(previous.id))
+      note.releasePointerCapture(previous.id);
+    status.textContent = cancelled
+      ? 'Move cancelled.'
+      : 'Note moved. Press Home to reset its position.';
+  }
+  note.addEventListener('pointerdown', (event) => {
+    if (
+      !event.isPrimary ||
+      (event.pointerType === 'mouse' && event.button !== 0)
+    )
+      return;
+    event.preventDefault();
+    const rect = stage.getBoundingClientRect();
+    drag = {
+      id: event.pointerId,
+      x: position.x,
+      y: position.y,
+      offsetX: event.clientX - rect.left - position.x,
+      offsetY: event.clientY - rect.top - position.y,
+    };
+    note.focus({ preventScroll: true });
+    note.setPointerCapture(event.pointerId);
+    note.classList.add('is-dragging');
+  });
+  note.addEventListener('pointermove', (event) => {
+    if (!drag || drag.id !== event.pointerId) return;
+    const rect = stage.getBoundingClientRect();
+    move(
+      event.clientX - rect.left - drag.offsetX,
+      event.clientY - rect.top - drag.offsetY,
+    );
+  });
+  note.addEventListener('pointerup', (event) => {
+    if (drag?.id === event.pointerId) finish();
+  });
+  note.addEventListener('pointercancel', (event) => {
+    if (drag?.id === event.pointerId) finish(true);
+  });
+  note.addEventListener('lostpointercapture', () => finish());
+  note.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && drag) {
+      event.preventDefault();
+      finish(true);
+      return;
+    }
+    if (drag) return;
+    if (event.key === 'Home' || event.key === 'Enter') {
+      event.preventDefault();
+      reset();
+      status.textContent = 'Note returned to its starting position.';
+      return;
+    }
+    const step = event.shiftKey ? 25 : 10;
+    const offsets = {
+      ArrowLeft: [-step, 0],
+      ArrowRight: [step, 0],
+      ArrowUp: [0, -step],
+      ArrowDown: [0, step],
+    };
+    if (!(event.key in offsets)) return;
+    event.preventDefault();
+    const [dx, dy] = offsets[event.key];
+    move(position.x + dx, position.y + dy);
+  });
+  reset();
+  new ResizeObserver(() => move(position.x, position.y)).observe(stage);
+  new ResizeObserver(() => move(position.x, position.y)).observe(note);
+})();
+
 // Project screenshot touch navigation and enlargement.
 (() => {
   const art = document.querySelector('#dialog-art');

@@ -21,6 +21,7 @@ Each project has a short preview, project context, technical details, tags, a re
 - Interactive GitHub contribution calendar for `Rjems995`, scaled to fit mobile screens. Hover, tap, or focus a day to see its date and contribution count; arrow keys move between days and weeks. A profile link and static-image fallback remain available.
 - Contact dialog with a Gmail/default email app choice before opening a draft. Both options include the form details, with direct email links and a copy-address action also available. Messages are reviewed and sent in the visitor's email client; the portfolio has no email-sending backend.
 - Local clock using the `Asia/Manila` timezone.
+- A draggable footer sticky note with mouse, touch, arrow-key movement, and Home-to-reset support. Its movement stays within a dedicated area above the footer links.
 - Skip-to-content link, visible keyboard focus, dialog labels, and reduced-motion support.
 
 The multilingual introduction cycles through 12 greetings, from "Hello" to "Kumusta." It plays once per browser session, includes a skip button, and is skipped when reduced motion is enabled. Other motion includes scroll reveals, the moving name, magnetic buttons, project previews, parallax, and drawer/dialog transitions. Continuous animation pauses when the page is hidden.

@@ -669,6 +669,129 @@ footer > a {
 footer > a span {
   padding-left: 20px;
 }
+.contact footer {
+  flex-wrap: wrap;
+  row-gap: 24px;
+}
+.footer-note-playground {
+  flex: 0 0 100%;
+  min-width: 0;
+}
+.footer-note-stage {
+  position: relative;
+  height: 250px;
+  border: 1px solid #ffffff12;
+  border-radius: 12px;
+  background-image: radial-gradient(#ffffff12 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+.footer-note-caption {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  color: #b8b9b6;
+  font-size: 11px;
+  line-height: 1.5;
+}
+.footer-note {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 176px;
+  min-height: 164px;
+  padding: 20px;
+  background: linear-gradient(145deg, #fff4b0, #f4dd7b);
+  color: #3e361d;
+  box-shadow: 3px 8px 16px #0004;
+  rotate: -4deg;
+  translate: var(--note-x, 22px) var(--note-y, 55px);
+  text-align: left;
+  touch-action: none;
+  user-select: none;
+  cursor: grab;
+}
+.footer-note::before {
+  content: '';
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  width: 48px;
+  height: 20px;
+  background: #fff8;
+  transform: translateX(-50%) rotate(3deg);
+}
+.footer-note::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, #e0c661 50%, var(--ink) 50%);
+}
+.footer-note-label,
+.footer-note-grip {
+  display: block;
+  color: #665a2b;
+  font-size: 10px;
+  line-height: 1.5;
+}
+.footer-note-label {
+  margin-bottom: 12px;
+  letter-spacing: 1.5px;
+}
+.footer-note-message {
+  display: block;
+  font-size: 20px;
+  line-height: 1.25;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+}
+.footer-note-grip {
+  margin-top: 14px;
+}
+.footer-note.is-dragging {
+  rotate: 0deg;
+  box-shadow: 5px 14px 24px #0006;
+  cursor: grabbing;
+}
+.footer-note:focus-visible {
+  outline: 3px solid #b6c0ff;
+  outline-offset: 6px;
+}
+.contact footer .footer-note-help {
+  margin: 12px 0 0;
+  color: #b8b9b6;
+  font-size: 11px;
+  line-height: 1.6;
+}
+.footer-note-status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+@media (max-width: 600px) {
+  .footer-note-stage {
+    height: 244px;
+  }
+  .footer-note {
+    width: 158px;
+    padding: 18px;
+  }
+  .footer-note-message {
+    font-size: 18px;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .footer-note {
+    transition:
+      rotate 0.18s ease,
+      box-shadow 0.18s ease;
+  }
+}
 dialog {
   border: 0;
   border-radius: 7px;
