@@ -1400,6 +1400,65 @@ dialog::backdrop {
   outline: 2px solid #8c9aff;
   outline-offset: 5px;
 }
+.email-choice {
+  min-width: 0;
+  margin: 28px 0;
+  padding: 0;
+  border: 0;
+}
+.email-choice legend {
+  margin-bottom: 14px;
+  padding: 0;
+  font-size: 16px;
+}
+.email-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.email-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 76px;
+  padding: 16px;
+  border: 1px solid #ffffff40;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.email-option input {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: #8c9aff;
+}
+.email-option strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+.email-option small {
+  display: block;
+  margin-top: 4px;
+  color: #b8b9b6;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.email-option:has(input:checked) {
+  border-color: #8c9aff;
+  background: #455ce91f;
+}
+.email-option:focus-within {
+  outline: 2px solid #b6c0ff;
+  outline-offset: 3px;
+}
+@media (max-width: 600px) {
+  .email-options {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
 .contact-send {
   display: flex;
   justify-content: space-between;

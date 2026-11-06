@@ -784,10 +784,35 @@
                 maxlength="3000"
               ></textarea></span
           ></label>
+          <fieldset class="email-choice">
+            <legend>Where should the draft open?</legend>
+            <div class="email-options">
+              <label class="email-option">
+                <input type="radio" name="email-client" value="gmail" checked />
+                <span
+                  ><strong>Gmail</strong><small>Opens in a new tab</small></span
+                >
+              </label>
+              <label class="email-option">
+                <input type="radio" name="email-client" value="email-app" />
+                <span
+                  ><strong>Default email app</strong
+                  ><small>Opens your preferred email app</small></span
+                >
+              </label>
+            </div>
+          </fieldset>
           <div class="contact-send">
-            <p>Prepare a Gmail draft, then review and send it there.</p>
-            <button class="circle-button blue" type="submit">
-              Open email draft
+            <p id="draft-help">
+              Open a Gmail draft in a new tab, then review and send it there.
+            </p>
+            <button
+              id="draft-submit"
+              class="circle-button blue"
+              type="submit"
+              aria-describedby="draft-help"
+            >
+              Open Gmail draft
             </button>
           </div>
         </form>
@@ -801,7 +826,7 @@
             href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=robinwaje09%40gmail.com&amp;su=Portfolio%20inquiry"
             target="_blank"
             rel="noopener noreferrer"
-            >Email Robin
+            >Open Gmail
             <svg
               class="arrow-icon"
               viewBox="0 0 24 24"
@@ -819,7 +844,7 @@
             id="email-app-link"
             class="pill-link"
             href="mailto:robinwaje09@gmail.com?subject=Portfolio%20inquiry"
-            >Use email app
+            >Open email app
             <svg
               class="arrow-icon"
               viewBox="0 0 24 24"
@@ -838,8 +863,8 @@
           </button>
         </div>
         <p class="email-help">
-          Email Robin opens Gmail in a new tab. Review your message and send it
-          from there.
+          You review and send the message in your chosen email service. If it
+          doesn&rsquo;t open, try the other option or copy my email address.
         </p>
         <p id="email-address">robinwaje09@gmail.com</p>
         <p id="email-status" role="status" aria-live="polite"></p>

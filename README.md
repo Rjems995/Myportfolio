@@ -19,7 +19,7 @@ Each project has a short preview, project context, technical details, tags, a re
 - Responsive portrait hero, About section, education card, and options to view the resume PDF in a new tab or download it.
 - Project filters for all work, web apps, and design tools.
 - Interactive GitHub contribution calendar for `Rjems995`, scaled to fit mobile screens. Hover, tap, or focus a day to see its date and contribution count; arrow keys move between days and weeks. A profile link and static-image fallback remain available.
-- Contact dialog that prepares a Gmail draft, with a default email app link and a copy-address action. Messages are reviewed and sent in the visitor's email client; the portfolio has no email-sending backend.
+- Contact dialog with a Gmail/default email app choice before opening a draft. Both options include the form details, with direct email links and a copy-address action also available. Messages are reviewed and sent in the visitor's email client; the portfolio has no email-sending backend.
 - Local clock using the `Asia/Manila` timezone.
 - Skip-to-content link, visible keyboard focus, dialog labels, and reduced-motion support.
 

@@ -365,7 +365,20 @@ if (portfolio.email) {
     }
   });
 }
-document.querySelector('#contact-form').addEventListener('submit', (event) => {
+const contactForm = document.querySelector('#contact-form');
+contactForm.addEventListener('change', (event) => {
+  if (event.target.name !== 'email-client') return;
+  const useEmailApp = event.target.value === 'email-app';
+  document.querySelector('#draft-submit').textContent = useEmailApp
+    ? 'Open email app'
+    : 'Open Gmail draft';
+  document.querySelector('#draft-help').textContent = useEmailApp
+    ? 'Open a draft in your default email app, then review and send it there.'
+    : 'Open a Gmail draft in a new tab, then review and send it there.';
+  document.querySelector('#email-status').textContent = '';
+});
+
+contactForm.addEventListener('submit', (event) => {
   event.preventDefault();
   const form = event.currentTarget;
   if (!form.reportValidity()) return;
@@ -379,13 +392,16 @@ document.querySelector('#contact-form').addEventListener('submit', (event) => {
     su: `Project inquiry from ${data.get('name')}`,
     body,
   });
-  const link = document.querySelector('#email-link');
-  link.href = draft.href;
+  document.querySelector('#email-link').href = draft.href;
   document.querySelector('#email-app-link').href =
     `mailto:${portfolio.email}?subject=${encodeURIComponent(`Project inquiry from ${data.get('name')}`)}&body=${encodeURIComponent(body)}`;
-  link.click();
-  document.querySelector('#email-status').textContent =
-    'Draft prepared. If Gmail did not open, choose Email Robin below. Your message has not been sent yet.';
+  const useEmailApp = data.get('email-client') === 'email-app';
+  document.querySelector('#email-status').textContent = useEmailApp
+    ? 'Draft prepared for your email app. Review and send it there. If no app opened, try Open Gmail below.'
+    : 'Draft prepared for Gmail. Review and send it in the new tab. If it did not open, try Open Gmail below or use your email app.';
+  document
+    .querySelector(useEmailApp ? '#email-app-link' : '#email-link')
+    .click();
 });
 document
   .querySelector('#contact-open')
