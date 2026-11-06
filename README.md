@@ -18,6 +18,7 @@ Each project has a short preview, project context, technical details, tags, a re
 
 - Responsive portrait hero, About section, education card, and options to view the resume PDF in a new tab or download it.
 - Project filters for all work, web apps, and design tools.
+- Project-specific interactive previews inside the details dialog: a play/pause route illustration for EvacuRosa, selectable sample listings for CampusMarketplace, and a manually rotated CSS 3D room for SpaceSketch. These illustrate project ideas using clearly labeled sample content.
 - Interactive GitHub contribution calendar for `Rjems995`, scaled to fit mobile screens. Hover, tap, or focus a day to see its date and contribution count; arrow keys move between days and weeks. A profile link and static-image fallback remain available.
 - Contact dialog with a Gmail/default email app choice before opening a draft. Both options include the form details, with direct email links and a copy-address action also available. Messages are reviewed and sent in the visitor's email client; the portfolio has no email-sending backend.
 - Local clock using the `Asia/Manila` timezone.
@@ -74,6 +75,8 @@ Prettier is a development tool only. In Windows PowerShell, use `npm.cmd` if the
 | `scripts/set-site-url.cjs`                                 | Updates canonical and social-sharing URLs.                                                                    |
 
 When changing selected work, keep the cards in `index.html` aligned with `portfolio.projects`, `projectStories`, `projectOutcomes`, and `extraScreenshots` in `script.js`. Update image paths, captions, alt text, repository URLs, and filter counts together.
+
+Interactive preview content and shared styling live in `project-interactions.js` and `project-interactions.css`. The room model and rotation controls live in `project-room.js` and `project-room.css`. Keep these files in the deployment with the existing scripts and styles. Previews reset when switching projects, and route playback stops when the dialog closes. Reduced motion shows the completed route without animation; the room rotates only through visitor input.
 
 Replace `assets/robin-james-waje-resume.pdf` to update the resume download, then adjust the displayed file size in `index.html`. The older `assets/resume.html` layout does not automatically regenerate the current PDF.
 

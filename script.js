@@ -211,6 +211,7 @@ document
 document
   .querySelector('#project-dialog')
   .addEventListener('keydown', (event) => {
+    if (event.target.closest('#project-interaction')) return;
     if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
       event.preventDefault();
       showScreenshot(galleryIndex + (event.key === 'ArrowRight' ? 1 : -1));
@@ -283,6 +284,7 @@ function showProject(id) {
   document.querySelector('#dialog-title').textContent = project.title;
   document.querySelector('#dialog-description').textContent =
     project.description;
+  window.updateProjectInteraction(id);
   document.querySelector('#dialog-story').replaceChildren(
     ...projectStories[id].map(([title, copy]) => {
       const section = document.createElement('section');

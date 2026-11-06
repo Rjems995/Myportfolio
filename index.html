@@ -57,7 +57,11 @@
     />
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="animations.css" />
+    <link rel="stylesheet" href="project-interactions.css" />
+    <link rel="stylesheet" href="project-room.css" />
     <script src="enhancements.js" defer></script>
+    <script src="project-room.js" defer></script>
+    <script src="project-interactions.js" defer></script>
     <script src="script.js" defer></script>
     <script src="animations.js" defer></script>
     <meta property="og:url" content="https://rjems995.github.io/Myportfolio/" />
@@ -720,6 +724,18 @@
         <span class="eyebrow">GITHUB PROJECT</span>
         <h2 id="dialog-title"></h2>
         <p id="dialog-description"></p>
+        <section
+          id="project-interaction"
+          class="project-interaction"
+          aria-labelledby="interaction-title"
+          hidden
+        >
+          <span class="interaction-label">INTERACTIVE PREVIEW</span>
+          <h3 id="interaction-title"></h3>
+          <p id="interaction-intro"></p>
+          <div id="interaction-content"></div>
+          <p id="interaction-note"></p>
+        </section>
         <div id="dialog-story" class="case-study"></div>
         <div id="dialog-outcomes" class="project-outcomes"></div>
         <div id="dialog-tags" class="tags"></div>
