@@ -605,6 +605,49 @@
               rel="noopener noreferrer"
               >robinwaje09@gmail.com</a
             ><a class="pill-link" href="tel:+639563580043">+63 956 358 0043</a>
+            <button
+              id="copy-portfolio"
+              class="pill-link portfolio-share-button"
+              type="button"
+              hidden
+            >
+              <svg
+                class="arrow-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <rect x="8" y="8" width="12" height="12" rx="2" />
+                <path d="M16 8V4H4v12h4" />
+              </svg>
+              Copy portfolio link
+            </button>
+            <div
+              id="portfolio-share-feedback"
+              class="portfolio-share-feedback"
+              hidden
+            >
+              <p
+                id="portfolio-share-status"
+                role="status"
+                aria-live="polite"
+                aria-atomic="true"
+              ></p>
+              <div id="portfolio-share-fallback" hidden>
+                <label for="portfolio-share-url">Portfolio link</label>
+                <input
+                  id="portfolio-share-url"
+                  type="url"
+                  readonly
+                  aria-describedby="portfolio-share-status"
+                />
+              </div>
+            </div>
           </div>
           <footer>
             <div class="footer-note-playground">

@@ -371,6 +371,35 @@ if (portfolio.email) {
   });
 }
 const contactForm = document.querySelector('#contact-form');
+const copyPortfolio = document.querySelector('#copy-portfolio');
+const portfolioUrl = document.querySelector('link[rel="canonical"]').href;
+const shareStatus = document.querySelector('#portfolio-share-status');
+const shareFallback = document.querySelector('#portfolio-share-fallback');
+const shareUrl = document.querySelector('#portfolio-share-url');
+shareUrl.value = portfolioUrl;
+copyPortfolio.hidden = false;
+document.querySelector('#portfolio-share-feedback').hidden = false;
+let copyingPortfolio = false;
+copyPortfolio.addEventListener('click', async () => {
+  if (copyingPortfolio) return;
+  copyingPortfolio = true;
+  shareStatus.textContent = '';
+  try {
+    if (!navigator.clipboard?.writeText)
+      throw new Error('Clipboard unavailable');
+    await navigator.clipboard.writeText(portfolioUrl);
+    shareFallback.hidden = true;
+    shareStatus.textContent = 'Portfolio link copied. Ready to share!';
+  } catch {
+    shareFallback.hidden = false;
+    shareStatus.textContent =
+      'Copy the selected link below to share my portfolio.';
+    shareUrl.focus({ preventScroll: true });
+    shareUrl.select();
+  } finally {
+    copyingPortfolio = false;
+  }
+});
 contactForm.addEventListener('change', (event) => {
   if (event.target.name !== 'email-client') return;
   const useEmailApp = event.target.value === 'email-app';

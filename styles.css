@@ -649,6 +649,51 @@ sup {
   font-size: 12px;
   color: #a4a6a1;
 }
+.contact-details .pill-link.portfolio-share-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 1px solid #ffffff40;
+  border-radius: 30px;
+  background: transparent;
+  color: inherit;
+  font-size: 13px;
+}
+.portfolio-share-feedback {
+  flex: 0 0 100%;
+  min-width: 0;
+}
+.contact-details #portfolio-share-status {
+  min-height: 1.7em;
+  font-size: 13px;
+}
+#portfolio-share-fallback {
+  max-width: 460px;
+  margin-top: 10px;
+}
+#portfolio-share-fallback label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 12px;
+}
+#portfolio-share-url {
+  width: 100%;
+  min-height: 44px;
+  padding: 12px;
+  border: 1px solid #ffffff60;
+  border-radius: 8px;
+  background: #ffffff0d;
+  color: white;
+  font: inherit;
+  font-size: 16px;
+}
+#portfolio-share-url:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 4px;
+}
 footer {
   display: flex;
   gap: 55px;
