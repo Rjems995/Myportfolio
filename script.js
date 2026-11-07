@@ -6,7 +6,7 @@ const portfolio = {
       title: 'CampusMarketplace',
       screenshot: 'assets/projects/campus-current.webp',
       screenshotCaption:
-        'Updated landing page captured locally with an empty preview database.',
+        'Find campus essentials through keyword search and category shortcuts, or start selling an item. Local preview with no listings loaded.',
       description:
         'A full-stack marketplace for university communities to buy, sell, and trade items. Includes searchable listings, image galleries, real-time chat, favorites, seller reviews, and an administration workflow for moderation.',
       tags: ['Flask', 'PostgreSQL', 'SQLAlchemy', 'Socket.IO', 'Bootstrap'],
@@ -17,7 +17,7 @@ const portfolio = {
       title: 'EvacuRosa',
       screenshot: 'assets/projects/evacu-current.webp',
       screenshotCaption:
-        'Current EvacuRosa public interface, captured locally. Map data ? OpenStreetMap contributors.',
+        'Search Santa Rosa, choose a destination, and select a travel mode to begin planning an evacuation route. Local preview without live routing data. Map data © OpenStreetMap contributors.',
       description:
         'My capstone research project: a multi-hazard evacuation decision-support system for Santa Rosa City. My role focuses on UI/UX design, making hazard, route, and evacuation-center information easier to navigate. The system combines fuzzy-logic risk assessment with A* routing and supports offline route calculations.',
       tags: [
@@ -35,7 +35,7 @@ const portfolio = {
       title: 'SpaceSketch',
       screenshot: 'assets/projects/spacesketch.webp',
       screenshotCaption:
-        'SpaceSketch homepage captured from the current local build.',
+        'Explore the space-planning concept through a furnished 3D scene, then choose to start building or explore a space. Local homepage preview.',
       description:
         'An interior and outdoor space planner with connected 2D floor plans and a 3D editor. Users can draw rooms, resize walls, arrange furniture, edit doors and windows, and explore starter layouts. Supabase supports account access, cloud projects, version history, and shared viewing.',
       tags: ['Next.js', 'TypeScript', 'React', '3D Design', 'Supabase'],
@@ -106,43 +106,46 @@ const extraScreenshots = {
   campus: [
     [
       'campus-current-browse',
-      'Current browse page with an empty local preview database.',
+      'Narrow listings by category, budget, condition, and location to find a suitable item. The empty state offers a way to clear filters; this local preview has no listings.',
     ],
     [
       'campus-current-register',
-      'Current student registration interface, local preview.',
+      'Create a student account with a name, email, and confirmed password to join the campus marketplace. Registration form shown in a local preview.',
     ],
   ],
   evacu: [
     [
       'evacu-details',
-      'Evacuation-center panel, local frontend preview without operational data.',
+      'Review evacuation-center capacity and location alongside the map to help choose a destination. No shelter records are loaded in this local preview.',
     ],
     [
       'evacu-options',
-      'Hazard-information panel, local frontend preview without operational data.',
+      'Review flood, fire, and earthquake reports alongside the map to understand reported road impacts. No operational hazard data is loaded in this local preview.',
     ],
     [
       'evacu-mobile-map',
-      'Mobile map and route planner. Local frontend preview; map data © OpenStreetMap contributors.',
+      'Search for a destination on a phone while keeping map, shelter, and emergency controls within reach. Local preview shows offline status. Map data © OpenStreetMap contributors.',
       'portrait',
     ],
     [
       'evacu-mobile-centers',
-      'Mobile evacuation-center directory. Local preview without operational shelter data.',
+      'Find shelters by name, barangay, or address and filter for centers accepting evacuees. The mobile directory is empty in this local preview.',
       'portrait',
     ],
     [
       'evacu-mobile-hazards',
-      'Mobile hazard-information view. Local preview without operational hazard reports.',
+      'Check hazard summaries and reported road impacts from a phone, with a clear reminder that missing reports do not mean an all-clear. No operational reports are loaded.',
       'portrait',
     ],
   ],
   spacesketch: [
-    ['spacesketch-templates', 'Public starter layout previews.'],
+    [
+      'spacesketch-templates',
+      'Choose a room, apartment, office, or outdoor template as a starting point for a layout, or begin with an empty room. Public template selection preview.',
+    ],
     [
       'spacesketch-login',
-      'Account access interface for saved projects and editing.',
+      'Sign in to return to saved designs, or switch to sign-up to create an account. Account access is unavailable in this local preview; local design remains available.',
     ],
   ],
 };
