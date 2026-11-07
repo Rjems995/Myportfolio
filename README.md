@@ -1,5 +1,7 @@
 ﻿# Robin James Waje's Portfolio
 
+[![Robin James Waje — Designer & Developer, pictured beside his name on the portfolio's gray social preview.](assets/social-preview.png)](https://rjems995.github.io/Myportfolio/)
+
 A responsive personal portfolio built with HTML, CSS, and JavaScript. It presents Robin's background, selected projects, GitHub contributions, and downloadable resume, with motion inspired by [Aadarsh Rai's portfolio](https://aadarshrai.vercel.app/).
 
 **Live website:** [rjems995.github.io/Myportfolio](https://rjems995.github.io/Myportfolio/)
@@ -16,12 +18,14 @@ Each project has a short preview, project context, technical details, tags, a re
 
 ## Features
 
+- Consistent project thumbnail frames, neutral backgrounds, and proportional image spacing, with aligned text columns on desktop. Project dialogs place the title and summary above the gallery, with captions directly below each screenshot explaining its purpose and preview limitations.
 - Responsive portrait hero, About section, education card, and options to view the resume PDF in a new tab or download it.
 - Project filters for all work, web apps, and design tools.
 - Scroll-triggered sketch-to-screen reveals trace project-specific decorative wireframes before wiping into the real screenshots. Desktop rows include a thumbnail; mobile cards use their existing preview. Each reveal plays once, waits for its image, and skips motion for reduced-motion preferences or keyboard focus.
 - Project-specific interactive previews inside the details dialog: a play/pause route illustration for EvacuRosa, selectable sample listings for CampusMarketplace, and a manually rotated CSS 3D room for SpaceSketch. These illustrate project ideas using clearly labeled sample content.
 - Interactive GitHub contribution calendar for `Rjems995`, scaled to fit mobile screens. Hover, tap, or focus a day to see its date and contribution count; arrow keys move between days and weeks. A profile link and static-image fallback remain available.
 - Contact dialog with a Gmail/default email app choice before opening a draft. Both options include the form details, with direct email links and a copy-address action also available. Messages are reviewed and sent in the visitor's email client; the portfolio has no email-sending backend.
+- Copy portfolio link action beside the email and phone links, with matching hover-fill and magnetic animations. It copies the public canonical URL, announces success, and shows a selected link for manual copying if clipboard access is unavailable.
 - Local clock using the `Asia/Manila` timezone.
 - A draggable footer sticky note with mouse, touch, arrow-key movement, and Home-to-reset support. Its movement stays within a dedicated area above the footer links.
 - Skip-to-content link, visible keyboard focus, dialog labels, and reduced-motion support.
@@ -61,19 +65,22 @@ Prettier is a development tool only. In Windows PowerShell, use `npm.cmd` if the
 
 ## Files and customization
 
-| File or directory                                          | Purpose                                                                                                       |
-| ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| `index.html`                                               | Page structure, project cards, About content, contact links, resume link, and sharing metadata.               |
-| `styles.css`                                               | Layout, typography, components, and responsive styles.                                                        |
-| `script.js`                                                | Project data and stories, gallery state, filters, contact drafts, navigation controls, and local clock.       |
-| `animations.js` / `animations.css`                         | Welcome sequence, scroll effects, hover motion, and animated navigation/dialog behavior.                      |
-| `enhancements.js`                                          | Touch gallery navigation, screenshot enlargement, and interactive contribution-calendar loading and fallback. |
-| `favicon.svg`                                              | Circular portrait used as the browser tab icon.                                                               |
-| `assets/projects/`                                         | WebP project screenshots.                                                                                     |
-| `assets/robin-smiling-*.webp`                              | Transparent responsive portraits at 540, 800, and 1086 pixels wide.                                           |
-| `assets/robin-james-waje-resume.pdf`                       | Current downloadable resume.                                                                                  |
-| `assets/social-preview.html` / `assets/social-preview.png` | Editable social-preview artwork and its 1200 x 630 exported image.                                            |
-| `scripts/set-site-url.cjs`                                 | Updates canonical and social-sharing URLs.                                                                    |
+| File or directory                                          | Purpose                                                                                                                              |
+| ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `index.html`                                               | Page structure, project cards, About content, contact links, resume link, and sharing metadata.                                      |
+| `styles.css`                                               | Layout, typography, components, and responsive styles.                                                                               |
+| `script.js`                                                | Project data and stories, gallery state, filters, contact drafts, portfolio-link copying, navigation controls, and local clock.      |
+| `animations.js` / `animations.css`                         | Welcome sequence, scroll effects, hover motion, and animated navigation/dialog behavior.                                             |
+| `sketch-reveals.js` / `sketch-reveals.css`                 | Wireframe-to-screenshot reveals, shared thumbnail framing, and desktop project-row alignment.                                        |
+| `project-interactions.js` / `project-interactions.css`     | Project-specific route and listing previews, plus shared interactive-preview styling.                                                |
+| `project-room.js` / `project-room.css`                     | SpaceSketch's CSS 3D room and manual rotation controls.                                                                              |
+| `enhancements.js`                                          | Draggable footer note, touch gallery navigation, screenshot enlargement, and interactive contribution-calendar loading and fallback. |
+| `favicon.svg`                                              | Circular portrait used as the browser tab icon.                                                                                      |
+| `assets/projects/`                                         | WebP project screenshots.                                                                                                            |
+| `assets/robin-smiling-*.webp`                              | Transparent responsive portraits at 540, 800, and 1086 pixels wide.                                                                  |
+| `assets/robin-james-waje-resume.pdf`                       | Current downloadable resume.                                                                                                         |
+| `assets/social-preview.html` / `assets/social-preview.png` | Editable social-preview artwork and its 1200 x 630 exported image.                                                                   |
+| `scripts/set-site-url.cjs`                                 | Updates canonical and social-sharing URLs.                                                                                           |
 
 When changing selected work, keep the cards in `index.html` aligned with `portfolio.projects`, `projectStories`, `projectOutcomes`, and `extraScreenshots` in `script.js`. Update image paths, captions, alt text, repository URLs, and filter counts together.
 
@@ -118,8 +125,12 @@ npm run format
 
 Pass the full HTTPS site URL, including the repository path when applicable, without a query string or section anchor. The command updates `index.html`; it does not publish the site or regenerate the preview image. Social services may cache earlier previews.
 
+The banner at the top of this README uses the same 1200 × 630 social-preview image and links to the live portfolio. Edit `assets/social-preview.html` and export an updated `assets/social-preview.png` to change the artwork. If the public address changes, update the live links in this README too; the URL script only edits `index.html`.
+
+The Copy portfolio link button reads the canonical URL from `index.html`, so it shares the public homepage even from a local preview or a section anchor. Updating the canonical URL also updates what the button copies.
+
 ## Checks before publishing
 
-Run `npm run format:check`, then preview the page at phone and desktop sizes. Check project filters, every image in each gallery, image enlargement, navigation, resume download, and contact draft contents. Verify keyboard access and the reduced-motion setting as well.
+Run `npm run format:check`, then preview the page at phone and desktop sizes. Check project filters, every image and caption in each gallery, image enlargement, Next project navigation, interactive previews, resume viewing and download, contact draft contents, and portfolio-link copying. Verify the manual-copy fallback, keyboard access, and reduced-motion setting as well.
 
 Browser emulation helps catch layout issues; scrolling, rendering, and loading should also be checked on physical phones.
