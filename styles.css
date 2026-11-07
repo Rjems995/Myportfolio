@@ -21,6 +21,7 @@
   --gray: #999d9e;
   --blue: #455ce9;
   --line: #d8d8d5;
+  --project-preview-background: #e9eae5;
 }
 * {
   box-sizing: border-box;
@@ -1835,7 +1836,7 @@ button:focus-visible {
   aspect-ratio: 3 / 2;
   padding: 16px;
   object-fit: contain;
-  background: #eceeeb;
+  background: var(--project-preview-background);
   border-bottom: 1px solid var(--line);
 }
 .project-hover.screenshot-preview {

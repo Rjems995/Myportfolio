@@ -1,31 +1,42 @@
 /* The screenshot is the default; JavaScript adds the temporary sketch state. */
 .sketch-screen {
+  --preview-inset: 6%;
   position: relative;
   display: block;
   isolation: isolate;
   overflow: hidden;
   aspect-ratio: 3 / 2;
-  background: #f4f2ec;
+  background: var(--project-preview-background);
   border-bottom: 1px solid var(--line);
 }
+.sketch-screen > img,
+.sketch-outline,
+.sketch-screen::after {
+  position: absolute;
+  inset: var(--preview-inset);
+  width: calc(100% - var(--preview-inset) * 2);
+  height: calc(100% - var(--preview-inset) * 2);
+  border-radius: 5px;
+}
+.sketch-screen::after {
+  content: '';
+  z-index: 2;
+  border: 1px solid #1c1d201c;
+  pointer-events: none;
+}
 .sketch-screen > img {
-  position: relative;
   z-index: 1;
   display: block;
-  width: 100%;
-  height: 100%;
   aspect-ratio: 3 / 2;
   padding: 0;
   border: 0;
   object-fit: contain;
-  background: #eceeeb;
+  background: var(--paper);
+  box-shadow: 0 4px 12px #1c1d200d;
 }
 .sketch-outline {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
   color: var(--project-accent, #62774a);
+  background-color: var(--paper);
   background-image:
     linear-gradient(#7771 1px, transparent 1px),
     linear-gradient(90deg, #7771 1px, transparent 1px);
@@ -50,24 +61,30 @@
 }
 @media (min-width: 851px) {
   .project:has(.sketch-thumbnail) {
+    display: grid;
+    grid-template-columns:
+      16px clamp(160px, 17vw, 240px) minmax(0, 1fr)
+      135px 32px;
     gap: 24px;
-    flex-wrap: nowrap;
   }
   .sketch-thumbnail {
     display: block;
-    flex: 0 0 clamp(160px, 17vw, 240px);
     border: 1px solid var(--line);
-    border-radius: 8px;
+    border-radius: 12px;
   }
   .project:has(.sketch-thumbnail) .project-title {
     font-size: clamp(28px, 3vw, 46px);
     letter-spacing: -1.3px;
   }
+  .project:has(.sketch-thumbnail) .project-service,
   .project:has(.sketch-thumbnail) .project-arrow {
-    margin-left: auto;
+    margin-left: 0;
   }
 }
 @media (min-width: 851px) and (max-width: 1200px) {
+  .project:has(.sketch-thumbnail) {
+    grid-template-columns: 16px clamp(160px, 17vw, 240px) minmax(0, 1fr) 32px;
+  }
   .project:has(.sketch-thumbnail) .project-service {
     display: none;
   }
