@@ -327,7 +327,7 @@ nav a:hover .nav-dot {
   display: grid;
   grid-template-columns: 1.7fr 1fr;
   gap: 10%;
-  margin-top: 42px;
+  margin-top: 28px;
 }
 h2,
 h3,
@@ -392,7 +392,7 @@ h2 {
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 28px 32px;
+  gap: 24px 32px;
   min-width: 0;
 }
 .skill-group {
@@ -445,7 +445,7 @@ h2 {
 }
 .work-heading h2 {
   font-size: clamp(42px, 5vw, 72px);
-  margin: 18px 0 0;
+  margin: 12px 0 0;
 }
 .superscript {
   font-size: 14px;
@@ -462,7 +462,7 @@ h2 {
 .filters {
   display: flex;
   gap: 8px;
-  margin: 32px 0;
+  margin: 24px 0;
 }
 .filter {
   padding: 13px 23px;
@@ -491,7 +491,7 @@ sup {
   width: 100%;
   text-align: left;
   background: transparent;
-  padding: 39px 20px;
+  padding: 28px 20px;
   border-top: 1px solid var(--line);
   gap: 30px;
 }
@@ -514,7 +514,7 @@ sup {
   color: #858682;
   display: block;
   letter-spacing: 0;
-  margin-top: 11px;
+  margin-top: 8px;
 }
 .project-service {
   font-size: 12px;
@@ -560,7 +560,7 @@ sup {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 38px;
+  margin-top: 28px;
 }
 .work-bottom p {
   font-size: 12px;
@@ -870,6 +870,41 @@ dialog::backdrop {
 }
 #dialog-title {
   overflow-wrap: anywhere;
+}
+.project-intro {
+  padding: 28px 32px 24px;
+  border-bottom: 1px solid var(--line);
+}
+.project-intro > .eyebrow {
+  padding-right: 40px;
+}
+.project-intro #dialog-title {
+  margin: 10px 0 12px;
+  padding-right: 24px;
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.15;
+}
+.project-intro #dialog-description {
+  max-width: 72ch;
+  margin: 0;
+  color: #60625e;
+  font-size: 15px;
+  line-height: 1.65;
+}
+#project-dialog > .dialog-content {
+  padding: 24px 32px 32px;
+  border-top: 1px solid var(--line);
+}
+#project-dialog .project-interaction {
+  margin-top: 0;
+}
+@media (max-width: 600px) {
+  .project-intro {
+    padding: 24px 20px 20px;
+  }
+  #project-dialog > .dialog-content {
+    padding: 20px;
+  }
 }
 .dialog-content p {
   font-size: 15px;
@@ -1388,7 +1423,7 @@ dialog::backdrop {
 .screenshot-caption {
   margin: 0;
   padding: 12px 24px;
-  font-size: 11px;
+  font-size: 12px;
   line-height: 1.6;
   color: #646660;
   border-bottom: 1px solid var(--line);
@@ -1840,7 +1875,7 @@ button:focus-visible {
 }
 /* Shared visual rhythm across the portfolio. */
 :root {
-  --space-section: clamp(64px, 8vw, 112px);
+  --space-section: clamp(52px, 6vw, 88px);
   --text-body: 15px;
   --text-label: 11px;
 }
@@ -1861,7 +1896,7 @@ button:focus-visible {
   gap: 8%;
 }
 .expertise {
-  margin-top: clamp(48px, 6vw, 80px);
+  margin-top: clamp(40px, 4.5vw, 64px);
 }
 .work {
   padding-top: 24px;
@@ -1874,7 +1909,7 @@ button:focus-visible {
   line-height: 1.15;
 }
 .project-title small {
-  line-height: 1.6;
+  line-height: 1.45;
 }
 .screenshot-preview img {
   height: auto;
@@ -2005,7 +2040,7 @@ button:focus-visible {
     font-size: clamp(30px, 8vw, 40px);
   }
   .project {
-    padding: 24px 0;
+    padding: 20px 0;
   }
   .project-hover > .preview-copy {
     padding: 16px;
@@ -2106,7 +2141,7 @@ button:focus-visible {
 /* Keep background details beside the biography. */
 .intro-grid {
   grid-template-areas: 'heading copy' 'resume copy';
-  row-gap: 28px;
+  row-gap: 24px;
   align-items: start;
 }
 .intro-grid > h2 {

@@ -1,6 +1,6 @@
 .project-interaction {
   --interaction-accent: #62774a;
-  margin: 32px 0;
+  margin: 24px 0;
   padding: clamp(16px, 3vw, 28px);
   border: 1px solid var(--line);
   border-radius: 16px;

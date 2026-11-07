@@ -712,12 +712,18 @@
     </main>
     <dialog id="project-dialog" aria-labelledby="dialog-title">
       <button class="dialog-close" aria-label="Close project details">×</button>
+      <header class="project-intro">
+        <span class="eyebrow">GITHUB PROJECT</span>
+        <h2 id="dialog-title"></h2>
+        <p id="dialog-description"></p>
+      </header>
       <button
         id="dialog-art"
         class="dialog-art"
         type="button"
         aria-label="Enlarge screenshot"
       ></button>
+      <p id="screenshot-caption" class="screenshot-caption"></p>
       <p class="gallery-hint">
         Swipe to browse &middot; Tap an image to enlarge
       </p>
@@ -764,11 +770,7 @@
         role="group"
         aria-label="Choose a screenshot"
       ></div>
-      <p id="screenshot-caption" class="screenshot-caption"></p>
       <div class="dialog-content">
-        <span class="eyebrow">GITHUB PROJECT</span>
-        <h2 id="dialog-title"></h2>
-        <p id="dialog-description"></p>
         <section
           id="project-interaction"
           class="project-interaction"
